@@ -1578,21 +1578,35 @@
 
         function playVideoPlaceholder() { showToastMessage('Video player loading. You can watch NEJASH HOSPITAL\'s introduction video or call +2519000000!'); }
 
-        // ===== SPECIALIST FILTER =====
-        function filterSpecialists(category) {
-            const cards = document.querySelectorAll('.spec-card');
-            ['all', 'general', 'internal', 'pediatrics', 'surgery'].forEach(btn => {
-                const bEl = document.getElementById(`filter-${btn}`);
-                if (bEl) {
-                    bEl.className = btn === category ?
-                        "px-4 py-2 rounded-xl text-xs font-bold bg-medical-primary text-white shadow-sm transition" :
-                        "px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 transition";
+        // ===== DOCTOR FILTER LOGIC =====
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const doctorCards = document.querySelectorAll('.spec-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('bg-medical-primary', 'text-white'));
+            filterButtons.forEach(btn => btn.classList.add('bg-slate-100', 'text-slate-700'));
+
+            // Add active class to clicked button
+            this.classList.remove('bg-slate-100', 'text-slate-700');
+            this.classList.add('bg-medical-primary', 'text-white');
+
+            // Get the category from the button's data attribute
+            const category = this.getAttribute('data-filter');
+
+            // Show/Hide cards
+            doctorCards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
                 }
             });
-            cards.forEach(card => {
-                card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
-            });
-        }
+        });
+    });
+});
 
         // ===== AI CHAT =====
         function toggleChat() {
