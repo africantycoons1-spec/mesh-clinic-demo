@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEJASH HOSPITAL | Expert Healthcare With A Personal Touch - Jijiga</title>
+
+    <!-- ===== DNS PREFETCH (PUT HERE) ===== -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+    <!-- THEN EVERYTHING ELSE -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <!-- ... rest of your head ... -->
+</head>
     <title>NEJASH HOSPITAL | Expert Healthcare With A Personal Touch - Jijiga</title>
 
     <!-- Tailwind CSS CDN -->
@@ -451,32 +465,13 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden page-transition">
 
-    <!-- TOP BAR -->
-    <div class="bg-slate-900 text-slate-300 text-xs py-2.5 px-4 sm:px-8 border-b border-slate-800 relative z-20">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex items-center space-x-6">
-                <span class="flex items-center"><i class="fa-solid fa-phone-volume text-emerald-400 mr-2 animate-pulse"></i> <span data-i18n="emergency_label">Emergency</span>: <strong class="text-white ml-1 font-mono tracking-wide">+2519000000</strong></span>
-                <span class="hidden md:flex items-center">
-                    <i class="fa-solid fa-location-dot text-medical-primary mr-2"></i>
-                    <a href="https://maps.app.goo.gl/vHyugqwpYupU2uv6A" target="_blank" class="text-slate-300 hover:text-white underline decoration-medical-primary decoration-2 transition">Jigjiga Map Location</a>
-                </span>
-            </div>
-            <div class="flex items-center space-x-4">
-                <span class="flex items-center"><i class="fa-regular fa-clock text-medical-accent mr-2"></i> <span data-i18n="hours_label">Open 24/7 Emergency & Inpatient</span></span>
-                <div class="flex space-x-3 text-white items-center">
-                    <a href="https://wa.me/2519000000" target="_blank" class="hover:text-emerald-400 transition flex items-center space-x-1 bg-emerald-600/30 px-2.5 py-1 rounded-md text-[11px] font-semibold"><i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i> <span>WhatsApp</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- HEADER -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-medical-primary to-medical-accent flex items-center justify-center text-white font-bold text-xl shadow-md">
-                    <i class="fa-solid fa-house-medical"></i>
-                </div>
+                <div class="w-10 h-10 rounded-xl overflow-hidden flex-shrink-0 shadow-md">
+    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/services_images/file_0000000025ec8211a3484862c0d4f097.png" alt="NEJASH HOSPITAL Logo" class="w-full h-full object-cover">
+</div>
                 <div>
                     <span class="text-2xl font-extrabold tracking-tight text-slate-900">NEJASH <span class="text-medical-primary">HOSPITAL</span></span>
                     <span class="block text-[10px] uppercase tracking-widest text-slate-500 font-semibold" data-i18n="tagline">Private Medical Center</span>
@@ -542,10 +537,11 @@
             </div>
 
             <div class="lg:hidden flex items-center space-x-2">
-                <button onclick="toggleLangDropdown()" class="bg-slate-100 text-slate-700 px-3 py-2 rounded-xl text-xs font-bold flex items-center space-x-1">
-                    <i class="fa-solid fa-globe text-medical-primary"></i>
-                    <span id="mobile-lang-label">EN</span>
-                </button>
+                <button id="lang-toggle-btn" onclick="toggleLangDropdown()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-3.5 py-2.5 rounded-xl text-sm flex items-center space-x-1.5 transition">
+    <i class="fa-solid fa-globe text-medical-primary"></i>
+    <span id="current-lang-label">English</span>
+    <i class="fa-solid fa-chevron-down text-xs text-slate-400 hidden md:inline"></i>
+</button>
                 <button id="mobile-menu-btn" class="text-slate-700 focus:outline-none text-xl p-2">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -606,80 +602,110 @@
         </div>
     </header>
 
-    <!-- HERO -->
-    <section id="home" class="relative text-white py-16 sm:py-24 lg:py-36 overflow-hidden min-h-[580px] lg:min-h-[680px] flex items-center">
-        <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-0">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnGqHzCo6jcirV8T6G8QQlM_lPrar8N_kANickF7V_nbTUDKh8FZcYfDqC3b1ReG951IT4W8KL5Mj0UXLt79IWEvSm2Qgv6N7Y3s9aV9HjsI0xVJbFETLd6nWh-6kH0RuXh-F3H1d3z0HY=s680-w680-h510-rw" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0284c7/ffffff?text=NEJASH+HOSPITAL+Gate';" alt="NEJASH HOSPITAL Gate" class="w-full h-full object-cover brightness-105 contrast-110">
-        </div>
-        <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkrn4OvsprmCo3iAaTQkJ-C4FlwbewDi4UMALiuXLKb16TBh_jGnwxGnQ7clYGh-gvC7k6Wf6aspsZd1-hv1yIkNvFYA33Yu7PMdF7w6CUJfGV9XnEdMXKqNe3mV5yhBq50bEbrpgalpDY=s680-w680-h510-rw" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0d9488/ffffff?text=NEJASH+HOSPITAL+Entrance';" alt="NEJASH HOSPITAL Entrance" class="w-full h-full object-cover brightness-105 contrast-110">
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/70 z-1"></div>
-        <canvas class="webgl" id="hero-canvas"></canvas>
+<!-- HERO -->
+<section id="home" class="relative text-white py-16 sm:py-24 lg:py-36 overflow-hidden min-h-[580px] lg:min-h-[680px] flex items-center">
+    <!-- Slide 1 (Hidden on mobile) -->
+    <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-0 hidden md:block">
+        <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/hero_section_image/557633469_122155541798789304_457935090341446390_n%20(1).jpg?w=1200&q=80" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0284c7/ffffff?text=NEJASH+HOSPITAL+1';" alt="NEJASH HOSPITAL 1" class="w-full h-full object-cover brightness-105 contrast-110">
+    </div>
+    <!-- Slide 2 -->
+    <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+        <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/hero_section_image/487869827_3087974448716756_6808409809494013210_n.jpg?w=1200&q=80" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0284c7/ffffff?text=NEJASH+HOSPITAL+2';" alt="NEJASH HOSPITAL 2" class="w-full h-full object-cover brightness-105 contrast-110">
+    </div>
+    <!-- Slide 3 (Hidden on mobile) -->
+    <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0 hidden md:block">
+        <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/hero_section_image/605147808_122164363616789304_5969830347955385510_n%20-%20Copy.jpg?w=1200&q=80" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0284c7/ffffff?text=NEJASH+HOSPITAL+3';" alt="NEJASH HOSPITAL 3" class="w-full h-full object-cover brightness-105 contrast-110">
+    </div>
+    <!-- Slide 4 -->
+    <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+        <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/hero_section_image/487823928_3087974548716746_983465923716769295_n%20-%20Copy.jpg?w=1200&q=80" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0284c7/ffffff?text=NEJASH+HOSPITAL+4';" alt="NEJASH HOSPITAL 4" class="w-full h-full object-cover brightness-105 contrast-110">
+    </div>
+    <!-- Slide 5 -->
+    <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+        <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/hero_section_image/698296814_122181027236789304_4400054189461323431_n.jpg?w=1200&q=80" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0284c7/ffffff?text=NEJASH+HOSPITAL+5';" alt="NEJASH HOSPITAL 5" class="w-full h-full object-cover brightness-105 contrast-110">
+    </div>
+    <!-- Slide 6 -->
+    <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+        <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/hero_section_image/485931740_1166497725265709_609772359287881151_n%20-%20Copy.jpg?w=1200&q=80" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0284c7/ffffff?text=NEJASH+HOSPITAL+6';" alt="NEJASH HOSPITAL 6" class="w-full h-full object-cover brightness-105 contrast-110">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/70 z-1"></div>
+    <canvas class="webgl" id="hero-canvas"></canvas>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 w-full">
-            <div class="max-w-3xl space-y-4 lg:space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center space-x-2 bg-slate-900/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-700 text-xs font-semibold text-medical-200 shadow-sm reveal">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span data-i18n="hero_badge">Jigjiga's Leading Private Healthcare Clinic</span>
-                </div>
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white typing-effect" data-text="NEJASH HOSPITAL Speciality Clinic"></h1>
-                <p class="hidden md:block text-lg text-slate-200 max-w-2xl font-normal leading-relaxed drop-shadow reveal" data-i18n="hero_desc">
-                    Your Health Is Our Priority. With experienced specialists, modern diagnostic technology, and patient-centered treatment tailored for your family's well-being at NEJASH HOSPITAL in Jijiga.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2 reveal">
-                    <button onclick="openBookingModal()" class="w-full sm:w-auto bg-medical-primary hover:bg-medical-secondary text-white font-bold px-6 py-3.5 rounded-xl shadow-xl hover:scale-105 transition transform duration-200 flex items-center justify-center text-sm sm:text-base">
-                        <i class="fa-solid fa-calendar-plus mr-2"></i> <span data-i18n="book_appointment_cta">Book An Appointment</span>
-                    </button>
-                    <a href="https://wa.me/2519000000" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg transition text-center flex items-center justify-center text-sm sm:text-base">
-                        <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> <span data-i18n="whatsapp_cta">Chat on WhatsApp</span>
-                    </a>
-                    <button onclick="toggleChat()" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700 border border-slate-600 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center backdrop-blur-md text-sm sm:text-base">
-                        <i class="fa-solid fa-robot text-medical-primary mr-2"></i> <span data-i18n="ai_assistant_btn">AI Assistant</span>
-                    </button>
-                </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 w-full">
+        <div class="max-w-3xl space-y-4 lg:space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center space-x-2 bg-slate-900/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-700 text-xs font-semibold text-medical-200 shadow-sm reveal">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span data-i18n="hero_badge">Jigjiga's Leading Private Healthcare Clinic</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-amber-300 typing-effect" data-text="NEJASH HOSPITAL Speciality Clinic"></h1>
+            <p class="hidden md:block text-lg text-slate-200 max-w-2xl font-normal leading-relaxed drop-shadow reveal" data-i18n="hero_desc">
+                Your Health Is Our Priority. With experienced specialists, modern diagnostic technology, and patient-centered treatment tailored for your family's well-being at NEJASH HOSPITAL in Jijiga.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2 reveal">
+                <button onclick="openBookingModal()" class="w-full sm:w-auto bg-medical-primary hover:bg-medical-secondary text-white font-bold px-6 py-3.5 rounded-xl shadow-xl hover:scale-105 transition transform duration-200 flex items-center justify-center text-sm sm:text-base">
+                    <i class="fa-solid fa-calendar-plus mr-2"></i> <span data-i18n="book_appointment_cta">Book An Appointment</span>
+                </button>
+                <a href="https://wa.me/2519000000" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg transition text-center flex items-center justify-center text-sm sm:text-base">
+                    <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> <span data-i18n="whatsapp_cta">Chat on WhatsApp</span>
+                </a>
+                <button onclick="toggleChat()" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700 border border-slate-600 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center backdrop-blur-md text-sm sm:text-base">
+                    <i class="fa-solid fa-robot text-medical-primary mr-2"></i> <span data-i18n="ai_assistant_btn">AI Assistant</span>
+                </button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- WELCOME -->
-    <section class="w-full bg-slate-100/90 py-16 lg:py-24 border-b border-slate-200 reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="bg-white rounded-3xl shadow-xl p-6 sm:p-12 border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div class="lg:col-span-8 space-y-4">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-medical-primary tracking-tight" data-i18n="welcome_mesh">Welcome to NEJASH HOSPITAL</h2>
-                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">NEJASH HOSPITAL is located in the heart of Jijiga (<a href="https://maps.app.goo.gl/vHyugqwpYupU2uv6A" target="_blank" class="text-medical-primary underline font-semibold">View on Google Maps</a>).</p>
-                    <div class="flex items-center space-x-3 bg-rose-50 border border-rose-200 p-4 rounded-2xl text-rose-700 font-extrabold text-xs sm:text-base shadow-md">
-                        <i class="fa-solid fa-phone-volume text-rose-600 text-xl animate-pulse"></i>
-                        <span>CALL THESE NUMBERS FOR EMERGENCY!</span>
-                        <div class="ml-auto flex items-center space-x-1 text-medical-primary">
-                            <i class="fa-solid fa-arrow-right text-2xl animate-bounce"></i>
-                        </div>
+<!-- WELCOME -->
+<section class="w-full bg-slate-100/90 py-16 lg:py-24 border-b border-slate-200 reveal relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative">
+        
+        <!-- AMBULANCE IMAGE - LEFT SIDE (pushed further left) -->
+        <div class="hidden lg:block absolute -left-24 top-1/2 -translate-y-1/2 w-36 h-36 opacity-80">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiE9qwk_W9p8z8lwmddEsNkKxB6vXqHafL_qST-HwSVw&s=10" alt="Ambulance" class="w-full h-full object-contain">
+        </div>
+
+        <!-- AMBULANCE IMAGE - RIGHT SIDE (pushed further right) -->
+        <div class="hidden lg:block absolute -right-24 top-1/2 -translate-y-1/2 w-36 h-36 opacity-80 scale-x-[-1]">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiE9qwk_W9p8z8lwmddEsNkKxB6vXqHafL_qST-HwSVw&s=10" alt="Ambulance" class="w-full h-full object-contain">
+        </div>
+
+        <!-- MAIN CONTENT BOX (unchanged) -->
+        <div class="bg-white rounded-3xl shadow-xl p-6 sm:p-12 border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-medical-primary tracking-tight" data-i18n="welcome_mesh">Welcome to NEJASH HOSPITAL</h2>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">NEJASH HOSPITAL is located in the heart of Jijiga (<a href="https://maps.app.goo.gl/vHyugqwpYupU2uv6A" target="_blank" class="text-medical-primary underline font-semibold">View on Google Maps</a>).</p>
+                <div class="flex items-center space-x-3 bg-rose-50 border border-rose-200 p-4 rounded-2xl text-rose-700 font-extrabold text-xs sm:text-base shadow-md">
+                    <i class="fa-solid fa-phone-volume text-rose-600 text-xl animate-pulse"></i>
+                    <span>CALL THESE NUMBERS FOR EMERGENCY!</span>
+                    <div class="ml-auto flex items-center space-x-1 text-medical-primary">
+                        <i class="fa-solid fa-arrow-right text-2xl animate-bounce"></i>
                     </div>
                 </div>
-                <div class="lg:col-span-4 flex flex-col space-y-3">
-                    <a href="tel:+2519000000" class="bg-medical-50 hover:bg-medical-100 border border-medical-200 p-4 rounded-2xl flex items-center space-x-4 transition">
-                        <div class="w-12 h-12 rounded-xl bg-medical-primary text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs text-slate-500 font-medium block" data-i18n="call_us_now">Call Us Now</span>
-                            <strong class="text-slate-900 text-sm font-bold font-mono">+2519000000</strong>
-                        </div>
-                    </a>
-                    <a href="https://wa.me/2519000000" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 p-4 rounded-2xl flex items-center space-x-4 transition">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs text-slate-500 font-medium block" data-i18n="whatsapp_chat">WhatsApp Support</span>
-                            <strong class="text-slate-900 text-sm font-bold font-mono">+2519000000</strong>
-                        </div>
-                    </a>
-                </div>
+            </div>
+            <div class="lg:col-span-4 flex flex-col space-y-3">
+                <a href="tel:+2519000000" class="bg-medical-50 hover:bg-medical-100 border border-medical-200 p-4 rounded-2xl flex items-center space-x-4 transition">
+                    <div class="w-12 h-12 rounded-xl bg-medical-primary text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-500 font-medium block" data-i18n="call_us_now">Call Us Now</span>
+                        <strong class="text-slate-900 text-sm font-bold font-mono">+2519000000</strong>
+                    </div>
+                </a>
+                <a href="https://wa.me/2519000000" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 p-4 rounded-2xl flex items-center space-x-4 transition">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-500 font-medium block" data-i18n="whatsapp_chat">WhatsApp Support</span>
+                        <strong class="text-slate-900 text-sm font-bold font-mono">+2519000000</strong>
+                    </div>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- STATS -->
     <section class="stats-section py-12 bg-white border-b border-slate-200 reveal">
@@ -693,300 +719,398 @@
         </div>
     </section>
 
-    <!-- SPECIALISTS -->
-    <section id="specialists" class="w-full bg-white py-16 lg:py-24 border-b border-slate-200 reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
-                <div class="space-y-3">
-                    <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-medical-50 px-3.5 py-1.5 rounded-full" data-i18n="expert_team">Expert Medical Team</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="specialists_heading">Meet Our Dedicated Specialists</h2>
-                    <p class="text-slate-600 max-w-xl text-sm sm:text-base" data-i18n="specialists_sub">Consult with senior physicians and specialists committed to your health and rapid recovery.</p>
-                </div>
-                <button onclick="openBookingModal()" class="hidden md:flex mt-4 md:mt-0 text-medical-primary font-bold text-sm items-center hover:underline">
-                    <span data-i18n="book_consultation">Book Consultation</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                </button>
-            </div>
+<!-- ===== EXPERT MEDICAL TEAM ===== -->
+<section id="doctors" class="py-16 sm:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="inline-block bg-medical-primary/10 text-medical-primary font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">Our Team</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Expert Medical <span class="text-medical-primary">Specialists</span></h2>
+            <p class="text-slate-600 mt-3 text-sm sm:text-base">Our highly qualified doctors are dedicated to providing exceptional, patient-centered care across multiple specialties.</p>
+        </div>
 
-            <div class="hidden md:flex flex-wrap gap-2 mb-8">
-                <button onclick="filterSpecialists('all')" id="filter-all" class="px-4 py-2 rounded-xl text-xs font-bold bg-medical-primary text-white shadow-sm transition">All Specialists</button>
-                <button onclick="filterSpecialists('general')" id="filter-general" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 transition">General Practice</button>
-                <button onclick="filterSpecialists('internal')" id="filter-internal" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 transition">Internal Medicine</button>
-                <button onclick="filterSpecialists('pediatrics')" id="filter-pediatrics" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 transition">Pediatrics</button>
-                <button onclick="filterSpecialists('surgery')" id="filter-surgery" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 transition">Surgery & Orthopedics</button>
-            </div>
+        <!-- FILTER BUTTONS -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+            <button data-filter="all" class="filter-btn bg-medical-primary text-white font-semibold px-5 py-2.5 rounded-full text-sm shadow-md hover:shadow-lg transition">All</button>
+            <button data-filter="internal-medicine" class="filter-btn bg-slate-100 text-slate-700 font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-slate-200 transition">Internal Medicine</button>
+            <button data-filter="gynecology-obstetrics" class="filter-btn bg-slate-100 text-slate-700 font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-slate-200 transition">Gynecology & Obstetrics</button>
+            <button data-filter="pediatrics" class="filter-btn bg-slate-100 text-slate-700 font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-slate-200 transition">Pediatrics</button>
+            <button data-filter="plastic-surgery" class="filter-btn bg-slate-100 text-slate-700 font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-slate-200 transition">Plastic & Reconstructive Surgery</button>
+        </div>
 
-            <div id="specialists-grid" class="hidden md:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-                <!-- 1 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="general">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4w38oUiNLsWGa7jvDRKYSAbmbT122MFWsPC_wqXjoZg&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Ahmed';" alt="Dr. Ahmed Omar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Ahmed Omar</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1" data-i18n="doc_spec_1">General Practitioner</p>
-                        <p class="text-[10px] text-slate-500">Primary Care</p>
+        <!-- DESKTOP GRID (10 Doctors) -->
+        <div id="specialists-grid" class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            
+            <!-- 1: Dr. Abdishakur Abdirasaq - Gynecology -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="gynecology-obstetrics">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Abdishakur%20Abdirasaq%20Gynecology%20And%20Obsterics%20Specialist.png" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Abdishakur';" alt="Dr. Abdishakur Abdirasaq" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
                     </div>
                 </div>
-                <!-- 2 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="internal">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4-0ai-2w0g0B8JVALQp3K8eFGDCeI83Pru3f2CAZMTQ&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Fatima';" alt="Dr. Fatima Hassan" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Fatima Hassan</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1" data-i18n="doc_spec_2">Internal Medicine</p>
-                        <p class="text-[10px] text-slate-500">Chronic Care</p>
-                    </div>
-                </div>
-                <!-- 3 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="pediatrics">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaPSQ5HaUEtCaU2iePUcLNAkBoSB0c62Mp4EGkyG_K7w&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Ibrahim';" alt="Dr. Ibrahim Yusuf" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Ibrahim Yusuf</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1" data-i18n="doc_spec_3">Pediatrics</p>
-                        <p class="text-[10px] text-slate-500">Child Health</p>
-                    </div>
-                </div>
-                <!-- 4 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="surgery">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCNWDgE3dHUzy8Ak4ra4YdTV6hK288xK6zInm2I6PwwQ&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Samira';" alt="Dr. Samira Abdi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Samira Abdi</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1" data-i18n="doc_spec_4">Surgery</p>
-                        <p class="text-[10px] text-slate-500">Trauma Care</p>
-                    </div>
-                </div>
-                <!-- 5 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="internal">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ27EhKVotCvokwOkU09_tueECsksa98n33XIsGrWEGvA&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Mohamed';" alt="Dr. Mohamed Ali" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Mohamed Ali</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Cardiology</p>
-                        <p class="text-[10px] text-slate-500">Heart Specialist</p>
-                    </div>
-                </div>
-                <!-- 6 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="general">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBbDbIC8QI8J-S3mLXorPegjFoyk4InOSyQ0NPL6t1sw&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Aysha';" alt="Dr. Aysha Nur" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Aysha Nur</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Dermatology</p>
-                        <p class="text-[10px] text-slate-500">Skin Specialist</p>
-                    </div>
-                </div>
-                <!-- 7 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="surgery">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRryw-KclIIgZVTMNWLsxIPFwpFMEhpdLSssI14Xnh82w&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Liban';" alt="Dr. Liban Jama" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Liban Jama</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Ophthalmology</p>
-                        <p class="text-[10px] text-slate-500">Eye Specialist</p>
-                    </div>
-                </div>
-                <!-- 8 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="pediatrics">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtTxZZIFE78yll0i3a6q-ZGVgR5SIUeySf9uXaxylFAQ&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Hodan';" alt="Dr. Hodan Warsame" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Hodan Warsame</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Gynecology</p>
-                        <p class="text-[10px] text-slate-500">Women's Health</p>
-                    </div>
-                </div>
-                <!-- 9 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="internal">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvg4gXYnbfWtU1iw4rGYM0xqxSkUl9r_wxIhiG42wTVA&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Mahad';" alt="Dr. Mahad Farah" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Mahad Farah</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Neurology</p>
-                        <p class="text-[10px] text-slate-500">Brain & Nerve</p>
-                    </div>
-                </div>
-                <!-- 10 -->
-                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="general">
-                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1chBRuWzJWDdADpxBa9zyLZx-oU5Tt8J2nCW8244_Kg&s=10" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Specialist';" alt="Dr. Specialist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-slate-900 text-sm">Dr. Mesh Specialist</h3>
-                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Specialist Physician</p>
-                        <p class="text-[10px] text-slate-500">Advanced Treatment</p>
-                    </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Abdishakur Abdirasaq</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Gynecology & Obstetrics</p>
+                    <p class="text-[10px] text-slate-500">Women's Health</p>
                 </div>
             </div>
 
-            <!-- MOBILE -->
-            <div class="md:hidden space-y-8">
-                <div>
-                    <div class="border-b border-slate-200 pb-2 mb-4"><h3 class="font-bold text-medical-primary text-sm uppercase tracking-wider">General Practice</h3></div>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4w38oUiNLsWGa7jvDRKYSAbmbT122MFWsPC_wqXjoZg&s=10" alt="Dr. Ahmed" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Ahmed Omar</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">General Practitioner</p>
-                        </div>
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBbDbIC8QI8J-S3mLXorPegjFoyk4InOSyQ0NPL6t1sw&s=10" alt="Dr. Aysha" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Aysha Nur</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">Dermatology</p>
-                        </div>
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs col-span-2">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1chBRuWzJWDdADpxBa9zyLZx-oU5Tt8J2nCW8244_Kg&s=10" alt="Dr. Mesh Specialist" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Mesh Specialist</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">Specialist Physician</p>
-                        </div>
+            <!-- 2: Dr. Ahmed Abdikerin - Pediatrics -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="pediatrics">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Ahmed%20Abdikerin%20Pediatrics%20And%20Child%20Health%20Specialist.png" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Ahmed+Abdikerin';" alt="Dr. Ahmed Abdikerin" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
                     </div>
                 </div>
-                <div>
-                    <div class="border-b border-slate-200 pb-2 mb-4"><h3 class="font-bold text-medical-primary text-sm uppercase tracking-wider">Internal Medicine</h3></div>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4-0ai-2w0g0B8JVALQp3K8eFGDCeI83Pru3f2CAZMTQ&s=10" alt="Dr. Fatima" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Fatima Hassan</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">Internal Medicine</p>
-                        </div>
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ27EhKVotCvokwOkU09_tueECsksa98n33XIsGrWEGvA&s=10" alt="Dr. Mohamed" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Mohamed Ali</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">Cardiology</p>
-                        </div>
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs col-span-2">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvg4gXYnbfWtU1iw4rGYM0xqxSkUl9r_wxIhiG42wTVA&s=10" alt="Dr. Mahad" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Mahad Farah</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">Neurology</p>
-                        </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Ahmed Abdikerin</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Pediatrics & Child Health</p>
+                    <p class="text-[10px] text-slate-500">Child Health</p>
+                </div>
+            </div>
+
+            <!-- 3: Dr. Ahmednasir Abdi - Internal Medicine -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="internal-medicine">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Ahmednasir%20Abdi%20Internal%20Medicine%20Specialist.png" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Ahmednasir';" alt="Dr. Ahmednasir Abdi" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
                     </div>
                 </div>
-                <div>
-                    <div class="border-b border-slate-200 pb-2 mb-4"><h3 class="font-bold text-medical-primary text-sm uppercase tracking-wider">Pediatrics</h3></div>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaPSQ5HaUEtCaU2iePUcLNAkBoSB0c62Mp4EGkyG_K7w&s=10" alt="Dr. Ibrahim" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Ibrahim Yusuf</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">Pediatrics</p>
-                        </div>
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtTxZZIFE78yll0i3a6q-ZGVgR5SIUeySf9uXaxylFAQ&s=10" alt="Dr. Hodan" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Hodan Warsame</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">Gynecology</p>
-                        </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Ahmednasir Abdi</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Internal Medicine</p>
+                    <p class="text-[10px] text-slate-500">Chronic Care</p>
+                </div>
+            </div>
+
+            <!-- 4: Dr. Fardowsa Abdulahi - Gynecology -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="gynecology-obstetrics">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Fardowsa%20Abdulahi%20Assistant%20Professor%20Of%20Gynecology%20And%20Obsterics.png" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Fardowsa';" alt="Dr. Fardowsa Abdulahi" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
                     </div>
                 </div>
-                <div>
-                    <div class="border-b border-slate-200 pb-2 mb-4"><h3 class="font-bold text-medical-primary text-sm uppercase tracking-wider">Surgery & Orthopedics</h3></div>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCNWDgE3dHUzy8Ak4ra4YdTV6hK288xK6zInm2I6PwwQ&s=10" alt="Dr. Samira" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Samira Abdi</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">Surgery</p>
-                        </div>
-                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
-                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRryw-KclIIgZVTMNWLsxIPFwpFMEhpdLSssI14Xnh82w&s=10" alt="Dr. Liban" class="w-full h-full object-cover"></div>
-                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Liban Jama</h4>
-                            <p class="text-[10px] text-medical-primary font-medium">Ophthalmology</p>
-                        </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Fardowsa Abdulahi</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Assistant Professor - Gynecology</p>
+                    <p class="text-[10px] text-slate-500">Women's Health</p>
+                </div>
+            </div>
+
+            <!-- 5: Dr. Girma Moges MD - Plastic Surgery -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="plastic-surgery">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Girma%20Moges%20MD%20Plastic%20And%20Reconstructive%20Surgeon.png" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Girma+Moges';" alt="Dr. Girma Moges" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
                     </div>
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Girma Moges MD</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Plastic & Reconstructive Surgeon</p>
+                    <p class="text-[10px] text-slate-500">Surgery</p>
+                </div>
+            </div>
+
+            <!-- 6: Dr. Mohamed Abdiihaye - Internal Medicine -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="internal-medicine">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Mohamed%20Abdiihaye%20Internal%20Medicine%20Specialist.png" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Mohamed+Abdiihaye';" alt="Dr. Mohamed Abdiihaye" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
+                    </div>
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Mohamed Abdiihaye</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Internal Medicine</p>
+                    <p class="text-[10px] text-slate-500">Chronic Care</p>
+                </div>
+            </div>
+
+            <!-- 7: Dr. Mohamed Abdirahman - Pediatrics -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="pediatrics">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Mohamed%20Abdirahman%20Pediatrics%20And%20Child%20Health%20Specialist.png" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Mohamed+Abdirahman';" alt="Dr. Mohamed Abdirahman" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
+                    </div>
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Mohamed Abdirahman</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Pediatrics & Child Health</p>
+                    <p class="text-[10px] text-slate-500">Child Health</p>
+                </div>
+            </div>
+
+            <!-- 8: Dr. Mohamed Omar - Internal Medicine -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="internal-medicine">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Mohamed%20Omar%20Assistant%20Professor%20Of%20Internal%20Medicine.png" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Mohamed+Omar';" alt="Dr. Mohamed Omar" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
+                    </div>
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Mohamed Omar</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Assistant Professor - Internal Medicine</p>
+                    <p class="text-[10px] text-slate-500">Chronic Care</p>
+                </div>
+            </div>
+
+            <!-- 9: Dr. Solomon Wube - Pediatrics -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="pediatrics">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Solomon%20Wube%20Pediatrics%20And%20Neonatal%20Surgeon.png" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0284c7/ffffff?text=Dr.+Solomon+Wube';" alt="Dr. Solomon Wube" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
+                    </div>
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Solomon Wube</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Pediatrics & Neonatal Surgeon</p>
+                    <p class="text-[10px] text-slate-500">Surgery</p>
+                </div>
+            </div>
+
+            <!-- 10: Dr. Abdifatah Tahir - Internal Medicine -->
+            <div class="spec-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group" data-category="internal-medicine">
+                <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Abdifatah%20Tahir%20Internist.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x500/0d9488/ffffff?text=Dr.+Abdifatah+Tahir';" alt="Dr. Abdifatah Tahir" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                        <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow">Book Appointment</button>
+                    </div>
+                </div>
+                <div class="p-4 text-center">
+                    <h3 class="font-bold text-slate-900 text-sm">Dr. Abdifatah Tahir</h3>
+                    <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider mb-1">Internist</p>
+                    <p class="text-[10px] text-slate-500">Internal Medicine</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="w-full bg-teal-50/50 py-16 lg:py-24 border-b border-slate-200 reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-white px-3.5 py-1.5 rounded-full shadow-sm" data-i18n="clinical_services">Clinical Services</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="services_heading">Our Departments</h2>
+<!-- ===== MOBILE VIEW (Filterable by Department) ===== -->
+<div class="md:hidden">
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
+        <button data-filter="all" class="filter-btn-mobile bg-medical-primary text-white font-semibold px-4 py-2 rounded-full text-xs shadow-md hover:shadow-lg transition">All</button>
+        <button data-filter="internal-medicine" class="filter-btn-mobile bg-slate-100 text-slate-700 font-semibold px-4 py-2 rounded-full text-xs hover:bg-slate-200 transition">Internal Medicine</button>
+        <button data-filter="gynecology-obstetrics" class="filter-btn-mobile bg-slate-100 text-slate-700 font-semibold px-4 py-2 rounded-full text-xs hover:bg-slate-200 transition">Gynecology</button>
+        <button data-filter="pediatrics" class="filter-btn-mobile bg-slate-100 text-slate-700 font-semibold px-4 py-2 rounded-full text-xs hover:bg-slate-200 transition">Pediatrics</button>
+        <button data-filter="plastic-surgery" class="filter-btn-mobile bg-slate-100 text-slate-700 font-semibold px-4 py-2 rounded-full text-xs hover:bg-slate-200 transition">Plastic Surgery</button>
+    </div>
+
+    <!-- Doctors List -->
+    <div class="flex flex-col gap-4" id="mobile-doctor-list">
+        
+        <!-- 1: Dr. Abdishakur Abdirasaq - Gynecology -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="gynecology-obstetrics">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Abdishakur%20Abdirasaq%20Gynecology%20And%20Obsterics%20Specialist.png" alt="Dr. Abdishakur" class="w-full h-full object-cover">
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 1 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Abdishakur Abdirasaq</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Gynecology & Obstetrics</p>
+                <p class="text-[10px] text-slate-500">Women's Health</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+        <!-- 2: Dr. Ahmed Abdikerin - Pediatrics -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="pediatrics">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Ahmed%20Abdikerin%20Pediatrics%20And%20Child%20Health%20Specialist.png" alt="Dr. Ahmed Abdikerin" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Ahmed Abdikerin</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Pediatrics & Child Health</p>
+                <p class="text-[10px] text-slate-500">Child Health</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+        <!-- 3: Dr. Ahmednasir Abdi - Internal Medicine -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="internal-medicine">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Ahmednasir%20Abdi%20Internal%20Medicine%20Specialist.png" alt="Dr. Ahmednasir Abdi" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Ahmednasir Abdi</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Internal Medicine</p>
+                <p class="text-[10px] text-slate-500">Chronic Care</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+        <!-- 4: Dr. Fardowsa Abdulahi - Gynecology -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="gynecology-obstetrics">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Fardowsa%20Abdulahi%20Assistant%20Professor%20Of%20Gynecology%20And%20Obsterics.png" alt="Dr. Fardowsa Abdulahi" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Fardowsa Abdulahi</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Assistant Professor - Gynecology</p>
+                <p class="text-[10px] text-slate-500">Women's Health</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+        <!-- 5: Dr. Girma Moges MD - Plastic Surgery -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="plastic-surgery">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Girma%20Moges%20MD%20Plastic%20And%20Reconstructive%20Surgeon.png" alt="Dr. Girma Moges" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Girma Moges MD</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Plastic & Reconstructive Surgeon</p>
+                <p class="text-[10px] text-slate-500">Surgery</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+        <!-- 6: Dr. Mohamed Abdiihaye - Internal Medicine -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="internal-medicine">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Mohamed%20Abdiihaye%20Internal%20Medicine%20Specialist.png" alt="Dr. Mohamed Abdiihaye" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Mohamed Abdiihaye</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Internal Medicine</p>
+                <p class="text-[10px] text-slate-500">Chronic Care</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+        <!-- 7: Dr. Mohamed Abdirahman - Pediatrics -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="pediatrics">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Mohamed%20Abdirahman%20Pediatrics%20And%20Child%20Health%20Specialist.png" alt="Dr. Mohamed Abdirahman" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Mohamed Abdirahman</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Pediatrics & Child Health</p>
+                <p class="text-[10px] text-slate-500">Child Health</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+        <!-- 8: Dr. Mohamed Omar - Internal Medicine -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="internal-medicine">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Mohamed%20Omar%20Assistant%20Professor%20Of%20Internal%20Medicine.png" alt="Dr. Mohamed Omar" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Mohamed Omar</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Assistant Professor - Internal Medicine</p>
+                <p class="text-[10px] text-slate-500">Chronic Care</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+        <!-- 9: Dr. Solomon Wube - Pediatrics -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="pediatrics">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Solomon%20Wube%20Pediatrics%20And%20Neonatal%20Surgeon.png" alt="Dr. Solomon Wube" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Solomon Wube</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Pediatrics & Neonatal Surgeon</p>
+                <p class="text-[10px] text-slate-500">Surgery</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+        <!-- 10: Dr. Abdifatah Tahir - Internal Medicine -->
+        <div onclick="openBookingModal()" class="spec-card bg-white rounded-2xl overflow-hidden border border-slate-200 p-4 flex items-center gap-4 shadow-xs hover:shadow-md transition" data-category="internal-medicine">
+            <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100">
+                <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/Doctors%20Images/Dr.%20Abdifatah%20Tahir%20Internist.jpg" alt="Dr. Abdifatah Tahir" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-900 text-sm truncate">Dr. Abdifatah Tahir</h4>
+                <p class="text-[11px] text-medical-primary font-medium">Internist</p>
+                <p class="text-[10px] text-slate-500">Internal Medicine</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-sm"></i>
+        </div>
+
+    </div>
+</div>
+</div>
+</section>
+ 
+                                                                
+ <!-- SERVICES -->
+<section id="services" class="w-full py-16 lg:py-24 border-b border-slate-200 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-white px-3.5 py-1.5 rounded-full shadow-sm" data-i18n="clinical_services">Clinical Services</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="services_heading">Our Departments</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 1: General Medicine -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP_VIHAYouWHhJ_cNFzKCNmgrS-IPHA8lA3qkjD8MKCw&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
                     <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-heart-pulse"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_1_title">General Medicine & Consultations</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed" data-i18n="serv_1_desc">Primary health evaluations, chronic illness management, routine wellness checks, and preventive care.</p>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed" data-i18n="serv_1_desc">Primary health evaluations, chronic illness management, routine wellness checks, and preventive care.</p>
                     <button onclick="openServiceModal('General Medicine')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
-                <!-- 2 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
+            </div>
+
+            <!-- 2: Diagnostics & Laboratory -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ZVgaGyjKARfpu2NBat-orOhkKEYQRVUuTq4oA-g1NA&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
                     <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-microscope"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_2_title">Diagnostics & Laboratory</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed" data-i18n="serv_2_desc">High-precision digital lab testing, blood analysis, ultrasound diagnostics, and rapid screening.</p>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed" data-i18n="serv_2_desc">High-precision digital lab testing, blood analysis, ultrasound diagnostics, and rapid screening.</p>
                     <button onclick="openServiceModal('Diagnostics')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
-                <!-- 3 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
+            </div>
+
+            <!-- 3: Pediatrics & Maternal Care -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYsuZY1l8nMBdlhs1lN4S2Io0OvA2S5eKZkjmGL08jlw&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
                     <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-child-reaching"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_3_title">Pediatrics & Maternal Care</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed" data-i18n="serv_3_desc">Dedicated infant care, vaccination programs, prenatal support, and family health guidance.</p>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed" data-i18n="serv_3_desc">Dedicated infant care, vaccination programs, prenatal support, and family health guidance.</p>
                     <button onclick="openServiceModal('Pediatrics')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
-                <!-- 4 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
+            </div>
+
+            <!-- 4: Pharmacy Services -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC8FNq1CYW_cNP4aHCaT1fMOAOaqxmWVuCoH9FEY_Ng&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
                     <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-pills"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Pharmacy Services</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Fully stocked dispensary providing prescription medications, vaccines, and pharmaceutical consultations 24/7.</p>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed">Fully stocked dispensary providing prescription medications, vaccines, and pharmaceutical consultations 24/7.</p>
                     <button onclick="openServiceModal('Pharmacy Services')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
-                <!-- 5 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
+            </div>
+
+            <!-- 5: ICU Services -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQC5WKM6T2R0s9545VYCzAM48JkyjsbVspDI6T29LK3w&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
                     <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-bed-pulse"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">ICU Services</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Advanced Intensive Care Unit equipped with life-support monitors, ventilators, and specialized critical care nurses.</p>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed">Advanced Intensive Care Unit equipped with life-support monitors, ventilators, and specialized critical care nurses.</p>
                     <button onclick="openServiceModal('ICU Services')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
-                <!-- 6 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 group reveal">
+            </div>
+
+            <!-- 6: Emergency Care Services -->
+            <div class="bg-cover bg-center bg-no-repeat rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-slate-200 group reveal" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWut9Yf8Ld1VdOFNwmNWwctFhJ6-NldrRXUdgGJYyjQw&s=10');">
+                <div class="p-8 bg-gradient-to-b from-white/90 via-white/80 to-white/70 hover:bg-white/60 transition duration-300 h-full">
                     <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition shadow-sm"><i class="fa-solid fa-truck-medical"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Emergency Care Services</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">24/7 emergency response unit, trauma care, rapid triage, and ambulance dispatch for urgent medical attention.</p>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed">24/7 emergency response unit, trauma care, rapid triage, and ambulance dispatch for urgent medical attention.</p>
                     <button onclick="openServiceModal('Emergency Care Services')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- GALLERY -->
     <section id="gallery" class="w-full bg-slate-950 text-white py-16 sm:py-20 lg:py-28 reveal">
@@ -997,161 +1121,169 @@
                 <p class="text-slate-300 text-sm sm:text-base">Explore our modern medical environment, advanced equipment, and specialized care rooms in Jijiga.</p>
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
-                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa-vGGEDAEotehSX7U1TerC1-BICch3fkDB9RW_z7iHw&s=10" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0284c7/ffffff?text=NEJASH+HOSPITAL+1';" alt="NEJASH HOSPITAL Facility 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTNHNBgib9_eysWDGRusauDiDYHRJXcFzBujf4K8l4dQ&s=10" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0d9488/ffffff?text=NEJASH+HOSPITAL+2';" alt="NEJASH HOSPITAL Facility 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFVZ7ZaYyjihDffZT_bQyPmnONBydvVTZx4LuxEbI08A&s=10" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0284c7/ffffff?text=NEJASH+HOSPITAL+3';" alt="NEJASH HOSPITAL Facility 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFP4AAMYrakteEXlKdCBZLEl6Y3FMwCLsg6GeG4xqM0Q&s=10" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0d9488/ffffff?text=NEJASH+HOSPITAL+4';" alt="NEJASH HOSPITAL Facility 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3J4rzbevXXMEgqhYBiOe_kyQiymd9IuHVqAzlZ-qpxQ&s=10" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0284c7/ffffff?text=NEJASH+HOSPITAL+5';" alt="NEJASH HOSPITAL Facility 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3izETIwbHzcPlmtjYNQiu4glPg39xFRK0jYYpY-H_uQ&s=10" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0d9488/ffffff?text=NEJASH+HOSPITAL+6';" alt="NEJASH HOSPITAL Facility 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-                <div class="col-span-2 lg:col-span-3 overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[16/9] sm:aspect-[21/9] bg-slate-900 group"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThHgKtvmpCvxsYa3eRQ6Chfgn0Fj4cW43o8dvNihE4gQ&s=10" onerror="this.onerror=null;this.src='https://placehold.co/1400x600/0284c7/ffffff?text=NEJASH+HOSPITAL+Panorama';" alt="NEJASH HOSPITAL Panorama" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="w-full bg-slate-50 py-16 lg:py-24 border-b border-slate-200 reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-white px-3.5 py-1.5 rounded-full shadow-sm" data-i18n="patient_trust">Patient Trust</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="testimonials_heading">What Our Patients Say</h2>
-                <p class="text-slate-600 text-sm sm:text-base" data-i18n="testimonials_sub">Real feedback from patients who received exceptional care at NEJASH HOSPITAL.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Cards 1-6 -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
-                    <div class="relative overflow-hidden aspect-video bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600" onerror="this.onerror=null;this.src='https://placehold.co/600x338/0f172a/ffffff?text=Patient+Testimonial+1';" alt="Patient Testimonial 1" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-slate-950/30 flex items-center justify-center">
-                            <button onclick="playVideoPlaceholder()" class="w-14 h-14 rounded-full bg-medical-primary text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 transition transform duration-200"><i class="fa-solid fa-play ml-0.5"></i></button>
-                        </div>
-                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-semibold text-white uppercase tracking-wider">Patient Testimonial</div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 1</h3>
-                        <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="test_1">"Deegaan nadiif ah, shaqaale edeb leh, iyo dhakhaatiir aqoon u leh shaqadooda. Mar walba waan ku talinayaa NEJASH HOSPITAL."</p>
-                        <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
-                            <div class="w-8 h-8 rounded-full bg-medical-100 text-medical-primary font-bold text-xs flex items-center justify-center">P1</div>
-                            <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500" data-i18n="jigjiga_resident">Jigjiga</p></div>
-                        </div>
-                    </div>
+                <!-- Image 1: KEEP EXISTING -->
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa-vGGEDAEotehSX7U1TerC1-BICch3fkDB9RW_z7iHw&s=10" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0284c7/ffffff?text=NEJASH+HOSPITAL+1';" alt="NEJASH HOSPITAL Facility 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
-                    <div class="relative overflow-hidden aspect-video bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=600" onerror="this.onerror=null;this.src='https://placehold.co/600x338/0f172a/ffffff?text=Patient+Testimonial+2';" alt="Patient Testimonial 2" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-slate-950/30 flex items-center justify-center">
-                            <button onclick="playVideoPlaceholder()" class="w-14 h-14 rounded-full bg-medical-primary text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 transition transform duration-200"><i class="fa-solid fa-play ml-0.5"></i></button>
-                        </div>
-                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-semibold text-white uppercase tracking-wider">Patient Testimonial</div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 2</h3>
-                        <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="test_2">"Deegaan nadiif ah, shaqaale edeb leh, iyo dhakhaatiir aqoon u leh shaqadooda. Mar walba waan ku talinayaa NEJASH HOSPITAL."</p>
-                        <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
-                            <div class="w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-xs flex items-center justify-center">P2</div>
-                            <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500" data-i18n="local_patient">Jigjiga</p></div>
-                        </div>
-                    </div>
+                <!-- Image 2: KEEP EXISTING -->
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTNHNBgib9_eysWDGRusauDiDYHRJXcFzBujf4K8l4dQ&s=10" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0d9488/ffffff?text=NEJASH+HOSPITAL+2';" alt="NEJASH HOSPITAL Facility 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
-                    <div class="relative overflow-hidden aspect-video bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600" onerror="this.onerror=null;this.src='https://placehold.co/600x338/0f172a/ffffff?text=Patient+Testimonial+3';" alt="Patient Testimonial 3" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-slate-950/30 flex items-center justify-center">
-                            <button onclick="playVideoPlaceholder()" class="w-14 h-14 rounded-full bg-medical-primary text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 transition transform duration-200"><i class="fa-solid fa-play ml-0.5"></i></button>
-                        </div>
-                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-semibold text-white uppercase tracking-wider">Patient Testimonial</div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 3</h3>
-                        <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="test_3">"Deegaan nadiif ah, shaqaale edeb leh, iyo dhakhaatiir aqoon u leh shaqadooda. Mar walba waan ku talinayaa NEJASH HOSPITAL."</p>
-                        <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
-                            <div class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center">P3</div>
-                            <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500" data-i18n="community_member">Jigjiga</p></div>
-                        </div>
-                    </div>
+                <!-- Image 3: NEW -->
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/services_images/487823928_3087974548716746_983465923716769295_n%20-%20Copy.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0284c7/ffffff?text=NEJASH+HOSPITAL+3';" alt="NEJASH HOSPITAL Facility 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
-                    <div class="relative overflow-hidden aspect-video bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=600" onerror="this.onerror=null;this.src='https://placehold.co/600x338/0f172a/ffffff?text=Patient+Testimonial+4';" alt="Patient Testimonial 4" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-slate-950/30 flex items-center justify-center">
-                            <button onclick="playVideoPlaceholder()" class="w-14 h-14 rounded-full bg-medical-primary text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 transition transform duration-200"><i class="fa-solid fa-play ml-0.5"></i></button>
-                        </div>
-                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-semibold text-white uppercase tracking-wider">Patient Testimonial</div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 4</h3>
-                        <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="test_1">"Deegaan nadiif ah, shaqaale edeb leh, iyo dhakhaatiir aqoon u leh shaqadooda. Mar walba waan ku talinayaa NEJASH HOSPITAL."</p>
-                        <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
-                            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center">P4</div>
-                            <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
-                        </div>
-                    </div>
+                <!-- Image 4: NEW -->
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/services_images/487828449_3087974538716747_443765280370426888_n.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0d9488/ffffff?text=NEJASH+HOSPITAL+4';" alt="NEJASH HOSPITAL Facility 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
-                    <div class="relative overflow-hidden aspect-video bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600" onerror="this.onerror=null;this.src='https://placehold.co/600x338/0f172a/ffffff?text=Patient+Testimonial+5';" alt="Patient Testimonial 5" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-slate-950/30 flex items-center justify-center">
-                            <button onclick="playVideoPlaceholder()" class="w-14 h-14 rounded-full bg-medical-primary text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 transition transform duration-200"><i class="fa-solid fa-play ml-0.5"></i></button>
-                        </div>
-                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-semibold text-white uppercase tracking-wider">Patient Testimonial</div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 5</h3>
-                        <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="test_2">"Deegaan nadiif ah, shaqaale edeb leh, iyo dhakhaatiir aqoon u leh shaqadooda. Mar walba waan ku talinayaa NEJASH HOSPITAL."</p>
-                        <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
-                            <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 font-bold text-xs flex items-center justify-center">P5</div>
-                            <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
-                        </div>
-                    </div>
+                <!-- Image 5: NEW -->
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/services_images/487853295_3087974535383414_2545016778509042683_n%20-%20Copy.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0284c7/ffffff?text=NEJASH+HOSPITAL+5';" alt="NEJASH HOSPITAL Facility 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
-                    <div class="relative overflow-hidden aspect-video bg-slate-900">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600" onerror="this.onerror=null;this.src='https://placehold.co/600x338/0f172a/ffffff?text=Patient+Testimonial+6';" alt="Patient Testimonial 6" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-slate-950/30 flex items-center justify-center">
-                            <button onclick="playVideoPlaceholder()" class="w-14 h-14 rounded-full bg-medical-primary text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 transition transform duration-200"><i class="fa-solid fa-play ml-0.5"></i></button>
-                        </div>
-                        <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-semibold text-white uppercase tracking-wider">Patient Testimonial</div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                        <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 6</h3>
-                        <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="test_3">"Deegaan nadiif ah, shaqaale edeb leh, iyo dhakhaatiir aqoon u leh shaqadooda. Mar walba waan ku talinayaa NEJASH HOSPITAL."</p>
-                        <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
-                            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center justify-center">P6</div>
-                            <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
-                        </div>
-                    </div>
+                <!-- Image 6: NEW -->
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/services_images/488425475_3087974405383427_4853482227989203290_n%20-%20Copy.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x550/0d9488/ffffff?text=NEJASH+HOSPITAL+6';" alt="NEJASH HOSPITAL Facility 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <!-- Image 7: Panorama - KEEP EXISTING -->
+                <div class="col-span-2 lg:col-span-3 overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[16/9] sm:aspect-[21/9] bg-slate-900 group">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThHgKtvmpCvxsYa3eRQ6Chfgn0Fj4cW43o8dvNihE4gQ&s=10" onerror="this.onerror=null;this.src='https://placehold.co/1400x600/0284c7/ffffff?text=NEJASH+HOSPITAL+Panorama';" alt="NEJASH HOSPITAL Panorama" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- OUR STORY -->
-    <section id="story" class="w-full bg-slate-900 text-white py-16 lg:py-24 relative overflow-hidden reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-6 space-y-6">
-                <span class="text-medical-accent font-bold uppercase tracking-widest text-xs bg-medical-900/50 px-3.5 py-1.5 rounded-full border border-medical-500/30" data-i18n="our_story_badge">Our Story</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="story_heading">Building Trust & Quality Healthcare in Jijiga</h2>
-                <p class="text-slate-300 font-light leading-relaxed text-sm sm:text-base" data-i18n="story_desc">At NEJASH HOSPITAL, our journey began with a simple vision: to provide accessible, high-standard private medical care with genuine human compassion. Watch our story to learn more about our commitment to the community.</p>
-                <div class="flex items-center space-x-4 pt-2">
-                    <button onclick="openBookingModal()" class="bg-medical-primary hover:bg-medical-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition text-sm"><span data-i18n="book_now">Book Appointment</span></button>
-                    <a href="https://wa.me/2519000000" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition text-sm flex items-center"><i class="fa-brands fa-whatsapp mr-2"></i> <span data-i18n="whatsapp_us">WhatsApp Us</span></a>
+ <!-- TESTIMONIALS -->
+<section class="w-full bg-slate-50 py-16 lg:py-24 border-b border-slate-200 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-white px-3.5 py-1.5 rounded-full shadow-sm" data-i18n="patient_trust">Patient Trust</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="testimonials_heading">What Our Patients Say</h2>
+            <p class="text-slate-600 text-sm sm:text-base" data-i18n="testimonials_sub">Real feedback from patients who received exceptional care at NEJASH HOSPITAL.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Video 1 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
+                <div class="relative overflow-hidden aspect-video bg-slate-900">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1125873383059809%2F&show_text=false&width=560&t=460" class="absolute top-0 left-0 w-full h-full" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 1</h3>
+                    <p class="text-slate-600 text-sm italic leading-relaxed">"Daryeelka NEJASH HOSPITAL wuxuu iga caawiyay inaan si dhakhso leh u bogsado. Dhakhaatiirtu waxay ahaayeen kuwo khibrad leh oo daryeel dhab ah na siiyay."</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
+                        <div class="w-8 h-8 rounded-full bg-medical-100 text-medical-primary font-bold text-xs flex items-center justify-center">P1</div>
+                        <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
+                    </div>
                 </div>
             </div>
-            <div class="lg:col-span-6">
-                <div class="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 flex items-center justify-center group">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" onerror="this.onerror=null;this.src='https://placehold.co/800x450/0f172a/ffffff?text=NEJASH+HOSPITAL+Facility+Overview';" alt="NEJASH HOSPITAL Video Placeholder" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
-                        <button onclick="playVideoPlaceholder()" class="w-20 h-20 rounded-full bg-medical-primary text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition transform duration-200"><i class="fa-solid fa-play ml-1"></i></button>
+
+            <!-- Video 2 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
+                <div class="relative overflow-hidden aspect-video bg-slate-900">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=317&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F907757875301681%2F&show_text=false&width=560&t=0" class="absolute top-0 left-0 w-full h-full" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 2</h3>
+                    <p class="text-slate-600 text-sm italic leading-relaxed">"Waxaan ku qanacsanahay adeegga caafimaadka ee NEJASH HOSPITAL. Qalabka casriga ah iyo shaqaalaha edebka leh ayaa iga dhigay mid kalsooni ku qaba."</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
+                        <div class="w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-xs flex items-center justify-center">P2</div>
+                        <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
                     </div>
-                    <div class="absolute bottom-4 left-4 right-4 bg-slate-900/80 backdrop-blur-md p-3 rounded-xl text-xs text-slate-300 flex justify-between items-center">
-                        <span data-i18n="video_caption">NEJASH HOSPITAL Introduction & Facility Overview</span>
-                        <span class="text-medical-accent font-bold">2:45 min</span>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
+                <div class="relative overflow-hidden aspect-video bg-slate-900">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1442797327248399%2F&show_text=false&width=560&t=0" class="absolute top-0 left-0 w-full h-full" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 3</h3>
+                    <p class="text-slate-600 text-sm italic leading-relaxed">"NEJASH HOSPITAL waa meesha ugu fiican ee Jigjiga laga helo daryeel caafimaad oo heer sare ah. Waxaan ku talinayaa qof kasta oo caafimaadkiisa jecel."</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
+                        <div class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center">P3</div>
+                        <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
+                <div class="relative overflow-hidden aspect-video bg-slate-900">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F858278946796158%2F&show_text=false&width=476&t=0" class="absolute top-0 left-0 w-full h-full" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 4</h3>
+                    <p class="text-slate-600 text-sm italic leading-relaxed">"Waad ku kalsoonaan kartaa NEJASH HOSPITAL. Dhakhaatiirtu waxay si fiican u dhageystaan bukaanka waxayna siiyaan daaweyn ku habboon xaaladdooda."</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
+                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center">P4</div>
+                        <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 5 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-200 flex flex-col group reveal">
+                <div class="relative overflow-hidden aspect-video bg-slate-900">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1551791275945394%2F&show_text=false&width=560&t=0" class="absolute top-0 left-0 w-full h-full" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <h3 class="font-bold text-slate-900 text-base">Patient Testimonial 5</h3>
+                    <p class="text-slate-600 text-sm italic leading-relaxed">"Adeegyada NEJASH HOSPITAL waa kuwo tayo leh. Waxaan ka helay daryeel joogto ah oo iga caawiyay inaan si degdeg ah u soo kabsado."</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-slate-100">
+                        <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 font-bold text-xs flex items-center justify-center">P5</div>
+                        <div><h4 class="font-bold text-slate-900 text-xs">Verified Patient</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- OUR STORY -->
+<section id="story" class="w-full bg-slate-900 text-white py-16 lg:py-24 relative overflow-hidden reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 space-y-6">
+            <span class="text-medical-accent font-bold uppercase tracking-widest text-xs bg-medical-900/50 px-3.5 py-1.5 rounded-full border border-medical-500/30" data-i18n="our_story_badge">Our Story</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="story_heading">Building Trust & Quality Healthcare in Jijiga</h2>
+            <p class="text-slate-300 font-light leading-relaxed text-sm sm:text-base" data-i18n="story_desc">At NEJASH HOSPITAL, our journey began with a simple vision: to provide accessible, high-standard private medical care with genuine human compassion. Watch our story to learn more about our commitment to the community.</p>
+            
+            <!-- Button row with nurse image pointing toward buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+                <div class="flex items-center gap-3 pt-2">
+    <!-- Nurse Image (unchanged) -->
+    <div class="flex-shrink-0">
+        <img src="https://cdn.jsdelivr.net/gh/africantycoons1-spec/NEJASH-HOSPITAL@main/services_images/Gemini_Generated_Image_5gqt4b5gqt4b5gqt.jfif" 
+             alt="Nurse" 
+             class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-2 border-medical-primary/30 shadow-lg">
+    </div>
+    
+    <!-- Buttons (smaller on mobile) -->
+    <div class="flex flex-nowrap items-center gap-1 sm:gap-2 md:gap-3">
+        <button onclick="openBookingModal()" class="bg-medical-primary hover:bg-medical-600 text-white font-bold px-2.5 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3.5 rounded-xl shadow-lg transition text-[10px] sm:text-xs md:text-sm whitespace-nowrap"><span data-i18n="book_now">Book Appointment</span></button>
+        <a href="https://wa.me/2519000000" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-2.5 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3.5 rounded-xl shadow-lg transition text-[10px] sm:text-xs md:text-sm whitespace-nowrap flex items-center"><i class="fa-brands fa-whatsapp mr-1 sm:mr-2"></i> <span data-i18n="whatsapp_us">WhatsApp Us</span></a>
+    </div>
+</div>
+        </div>
+        <div class="lg:col-span-6 flex justify-center">
+            <div class="relative aspect-[9/16] max-h-[600px] w-full max-w-[340px] rounded-3xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800">
+                <!-- Facebook Video Embed -->
+                <div class="absolute top-0 left-0 w-full h-full">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F26932073803114884%2F&show_text=false&width=267&t=0" class="w-full h-full" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                <!-- Caption Overlay -->
+                <div class="absolute bottom-16 left-4 right-4 bg-slate-900/80 backdrop-blur-md p-3 rounded-xl text-xs text-slate-300 flex justify-between items-center" style="z-index: 10;">
+                    <span data-i18n="video_caption">NEJASH HOSPITAL Introduction & Facility Overview</span>
+                    <span class="text-medical-accent font-bold">2:45 min</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
+   <!-- FOOTER -->
     <footer id="contact" class="w-full bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-900 reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div class="space-y-6 lg:col-span-1">
@@ -1160,10 +1292,14 @@
                     <div><span class="text-2xl font-extrabold tracking-tight text-white">NEJASH <span class="text-medical-primary">HOSPITAL</span></span><span class="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold" data-i18n="tagline">Private Medical Center</span></div>
                 </div>
                 <p class="text-sm text-slate-400 leading-relaxed" data-i18n="footer_desc">NEJASH HOSPITAL provides dedicated healthcare services with expert physicians, advanced diagnostic support, and compassionate patient care in Jijiga.</p>
-                <div class="flex space-x-4">
-                    <a href="https://wa.me/2519000000" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition" title="WhatsApp"><i class="fa-brands fa-whatsapp text-lg"></i></a>
-                    <a href="tel:+2519000000" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-medical-primary text-white flex items-center justify-center transition" title="Call Us"><i class="fa-solid fa-phone"></i></a>
-                </div>
+              <div class="flex space-x-4">
+    <a href="https://wa.me/2519000000" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition" title="WhatsApp"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+    <a href="tel:+2519000000" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-medical-primary text-white flex items-center justify-center transition" title="Call Us"><i class="fa-solid fa-phone"></i></a>
+    <a href="https://www.tiktok.com/@nejashi.hospital" target="_blank" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-medical-primary text-white flex items-center justify-center transition" title="TikTok"><i class="fa-brands fa-tiktok text-lg"></i></a>
+    <a href="https://www.youtube.com/@nejashicaafimaad" target="_blank" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-medical-primary text-white flex items-center justify-center transition" title="YouTube"><i class="fa-brands fa-youtube text-lg"></i></a>
+    <!-- FACEBOOK ADDED BELOW -->
+    <a href="https://web.facebook.com/profile.php?id=61573679134543" target="_blank" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-medical-primary text-white flex items-center justify-center transition" title="Facebook"><i class="fa-brands fa-facebook text-lg"></i></a>
+</div>
             </div>
             <div class="space-y-4">
                 <h4 class="text-white font-bold text-base" data-i18n="footer_quick_links">Quick Links</h4>
@@ -1486,32 +1622,74 @@
             }
         };
 
-        let currentLang = 'en';
+    let currentLang = 'en';
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            const dict = translations[lang] || translations['en'];
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (dict[key]) el.textContent = dict[key];
-            });
-            const labels = { en: 'English', am: 'አማርኛ', so: 'Af-Somali' };
-            const shortLabels = { en: 'EN', am: 'AM', so: 'SO' };
-            document.getElementById('current-lang-label').textContent = labels[lang];
-            document.getElementById('mobile-lang-label').textContent = shortLabels[lang];
-            document.getElementById('lang-dropdown').classList.add('hidden');
-        }
+function setLanguage(lang) {
+    currentLang = lang;
+    const dict = translations[lang] || translations['en'];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+    });
+    const labels = { en: 'English', am: 'አማርኛ', so: 'Af-Somali' };
+    const shortLabels = { en: 'EN', am: 'AM', so: 'SO' };
+    
+    // Update globe icon
+    const langLabel = document.getElementById('current-lang-label');
+    if (langLabel) {
+        langLabel.textContent = labels[lang];
+    }
+    
+    // Update mobile menu label
+    const mobileLabel = document.getElementById('mobile-lang-label');
+    if (mobileLabel) {
+        mobileLabel.textContent = shortLabels[lang];
+    }
+    
+    const dropdown = document.getElementById('lang-dropdown');
+    if (dropdown) {
+        dropdown.classList.add('hidden');
+    }
+}
 
-        function toggleLangDropdown() {
-            document.getElementById('lang-dropdown').classList.toggle('hidden');
-        }
-        window.addEventListener('click', (e) => {
-            if (!e.target.closest('button[onclick="toggleLangDropdown()"]')) {
-                const dd = document.getElementById('lang-dropdown');
-                if (dd && !dd.classList.contains('hidden')) dd.classList.add('hidden');
+    // ===== MOBILE LANGUAGE CYCLE (Globe Icon Only) =====
+document.addEventListener('DOMContentLoaded', function() {
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (!langBtn) return;
+
+    function cycleLanguage() {
+    const languages = ['en', 'am', 'so'];
+    const currentIndex = languages.indexOf(currentLang);
+    const nextIndex = (currentIndex + 1) % languages.length;
+    const nextLang = languages[nextIndex];
+    
+    // Update the page content
+    setLanguage(nextLang);
+    
+    // FORCE UPDATE the globe icon label (direct update)
+    const labels = { en: 'English', am: 'አማርኛ', so: 'Af-Somali' };
+    const labelEl = document.getElementById('current-lang-label');
+    if (labelEl) {
+        labelEl.textContent = labels[nextLang];
+        console.log('Label updated to:', labels[nextLang]); // For debugging
+    } else {
+        console.log('Element not found!');
+    }
+}
+
+    langBtn.addEventListener('click', function(e) {
+        const isMobile = window.innerWidth < 768;
+        if (isMobile) {
+            e.preventDefault();
+            e.stopPropagation();
+            cycleLanguage();
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown && !dropdown.classList.contains('hidden')) {
+                dropdown.classList.add('hidden');
             }
-        });
-
+        }
+    });
+});
         // Mobile menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -1747,62 +1925,177 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // ===== HERO SLIDER & THREE.JS =====
-        window.addEventListener('load', () => {
-            const slides = document.querySelectorAll('.hero-bg-slide');
-            if (slides.length > 0) {
-                let idx = 0;
-                setInterval(() => {
-                    slides[idx].classList.remove('opacity-100');
-                    slides[idx].classList.add('opacity-0');
-                    idx = (idx + 1) % slides.length;
-                    slides[idx].classList.remove('opacity-0');
-                    slides[idx].classList.add('opacity-100');
-                }, 5000);
+// ===== HERO SLIDER =====
+window.addEventListener('load', function() {
+    // Function to get slides based on screen size
+    function getActiveSlides() {
+        const allSlides = document.querySelectorAll('.hero-bg-slide');
+        const isMobile = window.innerWidth < 768; // 768px is Tailwind's 'md' breakpoint
+        
+        // Filter slides: on mobile, exclude slides with 'hidden' class
+        return Array.from(allSlides).filter(slide => {
+            if (isMobile && slide.classList.contains('hidden')) {
+                return false; // Skip hidden slides on mobile
             }
-            const canvas = document.getElementById('hero-canvas');
-            if (canvas) {
-                const scene = new THREE.Scene();
-                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-                const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-                const geo = new THREE.BufferGeometry();
-                const count = 220;
-                const pos = new Float32Array(count * 3);
-                for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 16;
-                geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-                const mat = new THREE.PointsMaterial({ size: 0.045, color: 0x38bdf8, transparent: true, opacity: 0.65 });
-                const mesh = new THREE.Points(geo, mat);
-                scene.add(mesh);
-                camera.position.z = 5;
-                const clock = new THREE.Clock();
-
-                function animate() {
-                    requestAnimationFrame(animate);
-                    const t = clock.getElapsedTime();
-                    mesh.rotation.y = t * 0.03;
-                    mesh.rotation.x = t * 0.015;
-                    renderer.render(scene, camera);
-                }
-                animate();
-                window.addEventListener('resize', () => {
-                    camera.aspect = window.innerWidth / window.innerHeight;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(window.innerWidth, window.innerHeight);
-                });
-            }
-            const typingEl = document.querySelector('.typing-effect');
-            if (typingEl) {
-                const text = typingEl.dataset.text || typingEl.textContent.trim();
-                typingEl.textContent = '';
-                typeText(typingEl, text, 50);
-            }
-            initScrollReveal();
-            initStatsCounter();
-            initBackToTop();
-            initFloatingActions();
+            return true;
         });
+    }
+
+    let slides = getActiveSlides();
+    if (slides.length > 0) {
+        // Make sure first slide is visible
+        slides.forEach((s, i) => {
+            if (i === 0) {
+                s.classList.add('opacity-100');
+                s.classList.remove('opacity-0');
+            } else {
+                s.classList.remove('opacity-100');
+                s.classList.add('opacity-0');
+            }
+        });
+
+        let idx = 0;
+        const ROTATION_INTERVAL = 2500; // 2.5 seconds
+
+        // Start rotation
+        let intervalId = setInterval(() => {
+            const currentSlides = getActiveSlides();
+            
+            // If the number of slides changed (e.g., screen resize), reset everything
+            if (currentSlides.length !== slides.length) {
+                // Reset all slides
+                document.querySelectorAll('.hero-bg-slide').forEach(s => {
+                    s.classList.remove('opacity-100');
+                    s.classList.add('opacity-0');
+                });
+                
+                slides = currentSlides;
+                if (slides.length > 0) {
+                    slides[0].classList.remove('opacity-0');
+                    slides[0].classList.add('opacity-100');
+                    idx = 0;
+                }
+                return;
+            }
+
+            // Normal rotation
+            if (slides.length > 0) {
+                slides[idx].classList.remove('opacity-100');
+                slides[idx].classList.add('opacity-0');
+                idx = (idx + 1) % slides.length;
+                slides[idx].classList.remove('opacity-0');
+                slides[idx].classList.add('opacity-100');
+            }
+        }, ROTATION_INTERVAL);
+
+        // Handle screen resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Reset interval on resize
+                clearInterval(intervalId);
+                
+                // Reset all slides
+                document.querySelectorAll('.hero-bg-slide').forEach(s => {
+                    s.classList.remove('opacity-100');
+                    s.classList.add('opacity-0');
+                });
+                
+                slides = getActiveSlides();
+                if (slides.length > 0) {
+                    slides[0].classList.remove('opacity-0');
+                    slides[0].classList.add('opacity-100');
+                    idx = 0;
+                }
+                
+                // Restart interval
+                intervalId = setInterval(() => {
+                    const currentSlides = getActiveSlides();
+                    if (currentSlides.length !== slides.length) {
+                        document.querySelectorAll('.hero-bg-slide').forEach(s => {
+                            s.classList.remove('opacity-100');
+                            s.classList.add('opacity-0');
+                        });
+                        slides = currentSlides;
+                        if (slides.length > 0) {
+                            slides[0].classList.remove('opacity-0');
+                            slides[0].classList.add('opacity-100');
+                            idx = 0;
+                        }
+                        return;
+                    }
+                    if (slides.length > 0) {
+                        slides[idx].classList.remove('opacity-100');
+                        slides[idx].classList.add('opacity-0');
+                        idx = (idx + 1) % slides.length;
+                        slides[idx].classList.remove('opacity-0');
+                        slides[idx].classList.add('opacity-100');
+                    }
+                }, ROTATION_INTERVAL);
+            }, 250);
+        });
+    }
+
+    // ⭐ PRELOAD IMAGES
+    document.querySelectorAll('.hero-bg-slide img').forEach(img => {
+        const src = img.getAttribute('src');
+        if (src) {
+            const preload = new Image();
+            preload.src = src;
+        }
+    });
+
+    // ===== 3D CANVAS WITH DELAY =====
+    setTimeout(() => {
+        const canvas = document.getElementById('hero-canvas');
+        if (canvas) {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            const geo = new THREE.BufferGeometry();
+            const count = 220;
+            const pos = new Float32Array(count * 3);
+            for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 16;
+            geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            const mat = new THREE.PointsMaterial({ size: 0.045, color: 0x38bdf8, transparent: true, opacity: 0.65 });
+            const mesh = new THREE.Points(geo, mat);
+            scene.add(mesh);
+            camera.position.z = 5;
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const t = clock.getElapsedTime();
+                mesh.rotation.y = t * 0.03;
+                mesh.rotation.x = t * 0.015;
+                renderer.render(scene, camera);
+            }
+            animate();
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+    }, 2000);
+
+    // ===== TYPING EFFECT =====
+    const typingEl = document.querySelector('.typing-effect');
+    if (typingEl) {
+        const text = typingEl.dataset.text || typingEl.textContent.trim();
+        typingEl.textContent = '';
+        typeText(typingEl, text, 50);
+    }
+
+    // ===== SCROLL REVEAL, STATS, BACK TO TOP, FLOATING ACTIONS =====
+    initScrollReveal();
+    initStatsCounter();
+    initBackToTop();
+    initFloatingActions();
+});
     </script>
 </body>
 </html>
