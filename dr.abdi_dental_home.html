@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Abdi Specialty Dental Clinic | Expert Dental Care – Jigjiga</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            dark: '#0f172a',
+                            primary: '#0e54ae',   // dental blue
+                            secondary: '#049ba9',
+                            accent: '#863594'     // purple
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Three.js for 3D Background Particles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        .glass-card {
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        canvas.webgl {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .chat-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+
+        /* Typing cursor */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: currentColor;
+            margin-left: 2px;
+            animation: cursorBlink 0.8s step-end infinite;
+        }
+        @keyframes cursorBlink { 0%,100%{ opacity:1; } 50%{ opacity:0; } }
+
+        /* Back to top */
+        #back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            z-index: 999;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0e54ae, #049ba9);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 20px rgba(14,84,174,0.4);
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        #back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+        #back-to-top:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 30px rgba(14,84,174,0.5); }
+
+        /* Floating actions */
+        .floating-actions {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .floating-actions a {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .floating-actions a:hover { transform: scale(1.12) translateY(-3px); }
+        .floating-actions .whatsapp { background: #25D366; }
+        .floating-actions .phone { background: #0e54ae; }
+        .floating-actions .whatsapp:hover { box-shadow: 0 6px 25px rgba(37,211,102,0.4); }
+        .floating-actions .phone:hover { box-shadow: 0 6px 25px rgba(14,84,174,0.4); }
+
+        /* Page transition */
+        .page-transition { animation: pageFadeIn 0.6s ease-out forwards; }
+        @keyframes pageFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+        /* Stats */
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: #0e54ae; display: inline-block; }
+        .stat-label { display: block; font-size: 0.9rem; color: #64748b; font-weight: 500; margin-top: 4px; }
+
+        /* Dropdown */
+        .dropdown-menu {
+            opacity: 0; visibility: hidden; transform: translateY(8px);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+        }
+        .group:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-item { transition: background 0.15s ease, color 0.15s ease; }
+        .mobile-submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .mobile-submenu.open { max-height: 500px; }
+
+        /* Modal */
+        #booking-modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 9999;
+            background: rgba(15,23,42,0.6);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #booking-modal.show { display: flex; }
+        #booking-modal .modal-inner {
+            position: relative;
+            background: white;
+            border-radius: 24px;
+            max-width: 480px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 32px 28px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        #booking-modal .modal-close {
+            position: sticky;
+            top: 0;
+            float: right;
+            font-size: 24px;
+            color: #94a3b8;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px 4px 4px 12px;
+            z-index: 10;
+        }
+        #booking-modal .modal-close:hover { color: #1e293b; }
+        @media (max-width: 480px) {
+            #booking-modal .modal-inner { padding: 24px 16px; max-height: 90vh; }
+        }
+
+        /* AI Chat */
+        #ai-chat-window {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 9998;
+            width: 360px;
+            max-width: calc(100vw - 40px);
+            max-height: 65vh;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid #e2e8f0;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        #ai-chat-window.show { display: flex; }
+        @media (max-width: 480px) {
+            #ai-chat-window { right: 10px; width: calc(100vw - 20px); max-height: 60vh; bottom: 72px; }
+        }
+        #ai-chat-window .chat-header {
+            background: linear-gradient(to right, #0f172a, #0e54ae);
+            color: white;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+        #ai-chat-window .chat-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            background: #f8fafc;
+            min-height: 200px;
+        }
+        #ai-chat-window .chat-footer {
+            padding: 10px 14px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        #ai-chat-window .chat-footer input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 14px;
+            outline: none;
+        }
+        #ai-chat-window .chat-footer input:focus { border-color: #0e54ae; }
+        #ai-chat-window .chat-footer button {
+            background: #0e54ae;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        #ai-chat-window .chat-footer button:hover { background: #049ba9; }
+
+        #chat-toggle-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9997;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0e54ae, #049ba9);
+            color: white;
+            border: none;
+            box-shadow: 0 8px 30px rgba(14,84,174,0.4);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        #chat-toggle-btn:hover { transform: scale(1.08); box-shadow: 0 12px 40px rgba(14,84,174,0.5); }
+
+        .quick-prompt {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 11px;
+            color: #334155;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+        .quick-prompt:hover { background: #f1f5f9; }
+
+        /* Toast */
+        #toast-notification {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 99999;
+            background: #0f172a;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: none;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #334155;
+            max-width: 90vw;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        #toast-notification.show { display: flex; }
+
+        @media (max-width: 640px) {
+            .stat-number { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden page-transition">
+
+    <!-- Top Bar -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2.5 px-4 sm:px-8 border-b border-slate-800 relative z-20">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center"><i class="fa-solid fa-phone-volume text-emerald-400 mr-2 animate-pulse"></i> <span data-i18n="emergency_label">Emergency</span>: <strong class="text-white ml-1 font-mono tracking-wide">095 707 7080</strong></span>
+                <span class="hidden md:flex items-center">
+                    <i class="fa-solid fa-location-dot text-medical-primary mr-2"></i>
+                    <a href="https://maps.app.goo.gl/9Q3X+6H" target="_blank" class="text-slate-300 hover:text-white underline decoration-medical-primary decoration-2 transition">Jigjiga Map Location</a>
+                </span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center"><i class="fa-regular fa-clock text-medical-accent mr-2"></i> <span data-i18n="hours_label">Open 24/7 Emergency & Inpatient</span></span>
+                <div class="flex items-center gap-1 md:gap-3 text-white">
+                    <a href="#" target="_blank" class="hover:text-emerald-400 transition flex items-center space-x-0.5 bg-slate-700/50 px-1.5 md:px-2.5 py-1 rounded-md text-[10px] md:text-[11px] font-semibold"><i class="fa-brands fa-tiktok text-xs md:text-sm"></i> <span class="hidden md:inline">TikTok</span></a>
+                    <a href="#" target="_blank" class="hover:text-emerald-400 transition flex items-center space-x-0.5 bg-slate-700/50 px-1.5 md:px-2.5 py-1 rounded-md text-[10px] md:text-[11px] font-semibold"><i class="fa-brands fa-youtube text-xs md:text-sm"></i> <span class="hidden md:inline">YouTube</span></a>
+                    <a href="#" target="_blank" class="hover:text-emerald-400 transition flex items-center space-x-0.5 bg-slate-700/50 px-1.5 md:px-2.5 py-1 rounded-md text-[10px] md:text-[11px] font-semibold"><i class="fa-brands fa-facebook text-xs md:text-sm"></i> <span class="hidden md:inline">Facebook</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden flex-shrink-0 shadow-md bg-white flex items-center justify-center">
+                        <img src="https://raw.githubusercontent.com/africantycoons1-spec/Dr.-Abdi-Specialty-Dental-Clinic/main/resources/logo_dr_abdi.jfif"
+                             alt="Dr. Abdi Specialty Dental Clinic Logo"
+                             class="w-full h-full object-contain"
+                             loading="eager"
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-tooth text-medical-primary text-3xl\'></i>'">
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900">Dr. Abdi <span class="text-medical-primary">Specialty Dental Clinic</span></span>
+                        <span class="block text-[10px] uppercase tracking-widest text-slate-500 font-semibold" data-i18n="tagline">Private Dental Center</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-6 font-medium text-sm text-slate-600">
+                <a href="index.html" class="text-medical-primary font-semibold transition" data-i18n="nav_home">Home</a>
+                <div class="relative group">
+                    <a href="doctors.html" class="hover:text-medical-primary transition flex items-center gap-1" data-i18n="nav_doctors">Specialists <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i></a>
+                    <div class="dropdown-menu absolute left-0 top-full pt-2 w-52 z-50">
+                        <div class="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+                            <a href="doctors.html" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">All Specialists</a>
+                            <a href="doctors.html#general" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">General Dentistry</a>
+                            <a href="doctors.html#orthodontics" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Orthodontics</a>
+                            <a href="doctors.html#surgery" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Oral Surgery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <a href="medical_services.html" class="hover:text-medical-primary transition flex items-center gap-1" data-i18n="nav_services">Services <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i></a>
+                    <div class="dropdown-menu absolute left-0 top-full pt-2 w-56 z-50">
+                        <div class="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+                            <a href="medical_services.html#general" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">General Dentistry</a>
+                            <a href="medical_services.html#cosmetic" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Cosmetic Dentistry</a>
+                            <a href="medical_services.html#orthodontics" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Orthodontics</a>
+                            <a href="medical_services.html#oral-surgery" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Oral Surgery</a>
+                            <a href="medical_services.html#pediatric" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Pediatric Dentistry</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <a href="patient_info.html" class="hover:text-medical-primary transition flex items-center gap-1" data-i18n="nav_patient_info">Patient Info <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i></a>
+                    <div class="dropdown-menu absolute left-0 top-full pt-2 w-52 z-50">
+                        <div class="bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+                            <a href="patient_info.html#before-visit" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Before Your Visit</a>
+                            <a href="patient_info.html#payment" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">Insurance & Payment</a>
+                            <a href="patient_info.html#faq" class="dropdown-item block px-4 py-2 text-sm text-slate-700 hover:bg-medical-50 hover:text-medical-primary">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="hover:text-medical-primary transition" data-i18n="nav_contact">Contact</a>
+            </nav>
+
+            <div class="hidden sm:flex items-center space-x-3">
+                <div class="relative">
+                    <button onclick="toggleLangDropdown()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-3.5 py-2.5 rounded-xl text-sm flex items-center space-x-1.5 transition">
+                        <i class="fa-solid fa-globe text-medical-primary"></i>
+                        <span id="current-lang-label">English</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+                    </button>
+                    <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-44 bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden z-50">
+                        <button onclick="setLanguage('en')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 flex items-center justify-between text-slate-700 font-medium"><span>English</span> <span class="text-xs text-slate-400 font-bold">EN</span></button>
+                        <button onclick="setLanguage('am')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 flex items-center justify-between text-slate-700 font-medium"><span>አማርኛ</span> <span class="text-xs text-slate-400 font-bold">AM</span></button>
+                        <button onclick="setLanguage('so')" class="w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 flex items-center justify-between text-slate-700 font-medium"><span>Af-Somali</span> <span class="text-xs text-slate-400 font-bold">SO</span></button>
+                    </div>
+                </div>
+                <button onclick="openBookingModal()" class="bg-gradient-to-r from-medical-primary to-medical-secondary text-white font-semibold px-4 py-2.5 rounded-xl shadow-lg shadow-medical-primary/20 hover:shadow-xl hover:scale-105 transition transform duration-200 text-sm flex items-center">
+                    <i class="fa-regular fa-calendar-check mr-2"></i> <span data-i18n="book_btn">Book Appointment</span>
+                </button>
+            </div>
+
+            <div class="lg:hidden flex items-center space-x-2">
+                <button id="lang-toggle-btn" onclick="toggleLangDropdown()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-3.5 py-2.5 rounded-xl text-sm flex items-center space-x-1.5 transition">
+                    <i class="fa-solid fa-globe text-medical-primary"></i>
+                    <span id="mobile-lang-label">English</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-slate-400 hidden md:inline"></i>
+                </button>
+                <button id="mobile-menu-btn" class="text-slate-700 focus:outline-none text-xl p-2">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-2">
+            <a href="index.html" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1" data-i18n="nav_home">Home</a>
+            <div class="mobile-accordion">
+                <button onclick="toggleMobileSubmenu(this)" class="flex items-center justify-between w-full text-slate-700 font-medium py-1 text-left">
+                    <span data-i18n="nav_doctors">Specialists</span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-submenu pl-4 space-y-1">
+                    <a href="doctors.html" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">All Specialists</a>
+                    <a href="doctors.html#general" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">General Dentistry</a>
+                    <a href="doctors.html#orthodontics" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Orthodontics</a>
+                    <a href="doctors.html#surgery" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Oral Surgery</a>
+                </div>
+            </div>
+            <div class="mobile-accordion">
+                <button onclick="toggleMobileSubmenu(this)" class="flex items-center justify-between w-full text-slate-700 font-medium py-1 text-left">
+                    <span data-i18n="nav_services">Services</span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-submenu pl-4 space-y-1">
+                    <a href="medical_services.html#general" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">General Dentistry</a>
+                    <a href="medical_services.html#cosmetic" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Cosmetic Dentistry</a>
+                    <a href="medical_services.html#orthodontics" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Orthodontics</a>
+                    <a href="medical_services.html#oral-surgery" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Oral Surgery</a>
+                    <a href="medical_services.html#pediatric" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Pediatric Dentistry</a>
+                </div>
+            </div>
+            <div class="mobile-accordion">
+                <button onclick="toggleMobileSubmenu(this)" class="flex items-center justify-between w-full text-slate-700 font-medium py-1 text-left">
+                    <span data-i18n="nav_patient_info">Patient Info</span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-submenu pl-4 space-y-1">
+                    <a href="patient_info.html#before-visit" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Before Your Visit</a>
+                    <a href="patient_info.html#payment" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">Insurance & Payment</a>
+                    <a href="patient_info.html#faq" onclick="toggleMobileMenu()" class="block text-sm text-slate-600 py-1 hover:text-medical-primary">FAQs</a>
+                </div>
+            </div>
+            <a href="index.html#contact" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1" data-i18n="nav_contact">Contact</a>
+            <div class="pt-2 flex flex-col space-y-2 border-t border-slate-200 mt-2">
+                <div class="grid grid-cols-3 gap-2 pb-2">
+                    <button onclick="setLanguage('en'); toggleMobileMenu();" class="bg-slate-100 text-slate-700 text-xs py-2 rounded-lg font-bold text-center">English</button>
+                    <button onclick="setLanguage('am'); toggleMobileMenu();" class="bg-slate-100 text-slate-700 text-xs py-2 rounded-lg font-bold text-center">አማርኛ</button>
+                    <button onclick="setLanguage('so'); toggleMobileMenu();" class="bg-slate-100 text-slate-700 text-xs py-2 rounded-lg font-bold text-center">Af-Somali</button>
+                </div>
+                <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full bg-medical-primary text-white font-semibold py-2.5 rounded-xl text-center shadow-md">
+                    <span data-i18n="book_btn">Book Appointment</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative text-white py-16 sm:py-24 lg:py-36 overflow-hidden min-h-[580px] lg:min-h-[680px] flex items-center bg-slate-900">
+
+        <!-- Slide 1: Logo -->
+        <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-0">
+            <img src="https://raw.githubusercontent.com/africantycoons1-spec/Dr.-Abdi-Specialty-Dental-Clinic/main/resources/logo_dr_abdi.jfif"
+                 fetchpriority="high"
+                 loading="eager"
+                 onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0f172a/ffffff?text=Dr.+Abdi+Specialty+Dental+Clinic';"
+                 alt="Dr. Abdi Specialty Dental Clinic"
+                 class="w-full h-full object-cover">
+        </div>
+
+        <!-- Slide 2: Solid Red (no text) -->
+        <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='100%25' height='100%25' fill='%23ff0000'/%3E%3C/svg%3E"
+                 loading="lazy"
+                 alt="Red Background"
+                 class="w-full h-full object-cover">
+        </div>
+
+        <!-- Slide 3: Solid Blue (no text) -->
+        <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='100%25' height='100%25' fill='%230066cc'/%3E%3C/svg%3E"
+                 loading="lazy"
+                 alt="Blue Background"
+                 class="w-full h-full object-cover">
+        </div>
+
+        <!-- Slide 4: Solid Purple (no text) -->
+        <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='100%25' height='100%25' fill='%23800080'/%3E%3C/svg%3E"
+                 loading="lazy"
+                 alt="Purple Background"
+                 class="w-full h-full object-cover">
+        </div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/70 z-1"></div>
+        <!-- Three.js Particles -->
+        <canvas class="webgl" id="hero-canvas"></canvas>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 w-full">
+            <div class="max-w-3xl space-y-4 lg:space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-slate-900/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-700 text-xs font-semibold text-medical-200 shadow-sm reveal">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span data-i18n="hero_badge">Jigjiga's Leading Private Dental Clinic</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white typing-effect" data-text="Dr. Abdi Specialty Dental Clinic – Expert Dental Care"></h1>
+                <p class="hidden md:block text-lg text-slate-200 max-w-2xl font-normal leading-relaxed drop-shadow reveal" data-i18n="hero_desc">
+                    Your smile is our priority. With experienced specialists, modern technology, and patient‑centered care at Dr. Abdi Specialty Dental Clinic in Jigjiga.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2 reveal">
+                    <button onclick="openBookingModal()" class="w-full sm:w-auto bg-medical-primary hover:bg-medical-secondary text-white font-bold px-6 py-3.5 rounded-xl shadow-xl hover:scale-105 transition transform duration-200 flex items-center justify-center text-sm sm:text-base">
+                        <i class="fa-solid fa-calendar-plus mr-2"></i> <span data-i18n="book_appointment_cta">Book An Appointment</span>
+                    </button>
+                    <a href="https://wa.me/251957077080" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg transition text-center flex items-center justify-center text-sm sm:text-base">
+                        <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> <span data-i18n="whatsapp_cta">Chat on WhatsApp</span>
+                    </a>
+                    <button onclick="toggleChat()" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700 border border-slate-600 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center justify-center backdrop-blur-md text-sm sm:text-base">
+                        <i class="fa-solid fa-robot text-medical-primary mr-2"></i> <span data-i18n="ai_assistant_btn">AI Assistant</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="w-full bg-slate-100/90 py-16 lg:py-24 border-b border-slate-200 reveal relative bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative">
+            <div class="bg-white rounded-3xl shadow-xl p-6 sm:p-12 border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 space-y-4">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-medical-primary tracking-tight" data-i18n="welcome_mesh">Welcome to Dr. Abdi Specialty Dental Clinic</h2>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Dr. Abdi Specialty Dental Clinic is located in the heart of Jigjiga (<a href="https://maps.app.goo.gl/9Q3X+6H" target="_blank" class="text-medical-primary underline font-semibold">View on Google Maps</a>).
+                    </p>
+                    <div class="flex items-center space-x-3 bg-rose-50 border border-rose-200 p-4 rounded-2xl text-rose-700 font-extrabold text-xs sm:text-base shadow-md">
+                        <i class="fa-solid fa-phone-volume text-rose-600 text-xl animate-pulse"></i>
+                        <span>CALL THIS NUMBER FOR EMERGENCY!</span>
+                        <div class="ml-auto flex items-center space-x-1 text-medical-primary">
+                            <i class="fa-solid fa-arrow-right text-2xl animate-bounce"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-4 flex flex-col space-y-3">
+                    <a href="tel:0957077080" class="bg-medical-50 hover:bg-medical-100 border border-medical-200 p-4 rounded-2xl flex items-center space-x-4 transition">
+                        <div class="w-12 h-12 rounded-xl bg-medical-primary text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-500 font-medium block" data-i18n="call_us_now">Call Us Now</span>
+                            <strong class="text-slate-900 text-sm font-bold font-mono">095 707 7080</strong>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/251957077080" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 p-4 rounded-2xl flex items-center space-x-4 transition">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold shrink-0 shadow">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-500 font-medium block" data-i18n="whatsapp_chat">WhatsApp Support</span>
+                            <strong class="text-slate-900 text-sm font-bold font-mono">095 707 7080</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section py-12 bg-white border-b border-slate-200 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div><span class="stat-number" data-target="5000">0</span><span class="stat-label">Happy Patients</span></div>
+                <div><span class="stat-number" data-target="15">0</span><span class="stat-label">Expert Dentists</span></div>
+                <div><span class="stat-number" data-target="10">0</span><span class="stat-label">Years of Experience</span></div>
+                <div><span class="stat-number" data-target="100">0</span><span class="stat-label">% Patient Satisfaction</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialists -->
+    <section id="specialists" class="w-full bg-white py-16 lg:py-24 border-b border-slate-200 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                <div class="space-y-3">
+                    <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-medical-50 px-3.5 py-1.5 rounded-full" data-i18n="expert_team">Expert Dental Team</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="specialists_heading">Meet Our Dedicated Specialists</h2>
+                    <p class="text-slate-600 max-w-xl text-sm sm:text-base" data-i18n="specialists_sub">Consult with our experienced dentists committed to your oral health and confident smile.</p>
+                </div>
+                <button onclick="openBookingModal()" class="hidden md:flex mt-4 md:mt-0 text-medical-primary font-bold text-sm items-center hover:underline">
+                    <span data-i18n="book_consultation">Book Consultation</span> <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </button>
+            </div>
+
+            <!-- Desktop 5‑doctor grid -->
+            <div class="hidden md:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- 1 -->
+                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 group" data-category="general">
+                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=400" loading="lazy" onerror="this.src='https://placehold.co/400x500/0e54ae/ffffff?text=Dr.+Hassan'" alt="Dr. Hassan Ali" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
+                        </div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-slate-900 text-sm">Dr. Hassan Ali</h3>
+                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider">General Dentistry</p>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 group" data-category="orthodontics">
+                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400" loading="lazy" onerror="this.src='https://placehold.co/400x500/0e54ae/ffffff?text=Dr.+Amina'" alt="Dr. Amina Hassan" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
+                        </div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-slate-900 text-sm">Dr. Amina Hassan</h3>
+                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider">Orthodontics</p>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 group" data-category="surgery">
+                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400" loading="lazy" onerror="this.src='https://placehold.co/400x500/0e54ae/ffffff?text=Dr.+Khalid'" alt="Dr. Khalid Omar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
+                        </div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-slate-900 text-sm">Dr. Khalid Omar</h3>
+                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider">Oral Surgery</p>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 group" data-category="pediatric">
+                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400" loading="lazy" onerror="this.src='https://placehold.co/400x500/0e54ae/ffffff?text=Dr.+Fadumo'" alt="Dr. Fadumo Ahmed" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
+                        </div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-slate-900 text-sm">Dr. Fadumo Ahmed</h3>
+                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider">Pediatric Dentistry</p>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="spec-card bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 group" data-category="cosmetic">
+                    <div class="relative overflow-hidden aspect-[4/5] bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400" loading="lazy" onerror="this.src='https://placehold.co/400x500/0e54ae/ffffff?text=Dr.+Mohamed'" alt="Dr. Mohamed Abdi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                            <button onclick="openBookingModal()" class="w-full bg-white text-slate-900 font-bold py-2 rounded-xl text-xs shadow" data-i18n="book_appointment_card">Book Appointment</button>
+                        </div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-slate-900 text-sm">Dr. Mohamed Abdi</h3>
+                        <p class="text-[11px] text-medical-primary font-semibold uppercase tracking-wider">Cosmetic Dentistry</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile compact view (simplified) -->
+            <div class="md:hidden space-y-8">
+                <div>
+                    <div class="border-b border-slate-200 pb-2 mb-4"><h3 class="font-bold text-medical-primary text-sm uppercase tracking-wider">General Dentistry</h3></div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
+                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=200" alt="Dr. Hassan" class="w-full h-full object-cover"></div>
+                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Hassan Ali</h4>
+                            <p class="text-[10px] text-medical-primary font-medium">General Dentistry</p>
+                        </div>
+                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
+                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200" alt="Dr. Mohamed" class="w-full h-full object-cover"></div>
+                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Mohamed Abdi</h4>
+                            <p class="text-[10px] text-medical-primary font-medium">Cosmetic Dentistry</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="border-b border-slate-200 pb-2 mb-4"><h3 class="font-bold text-medical-primary text-sm uppercase tracking-wider">Orthodontics & Surgery</h3></div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
+                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200" alt="Dr. Amina" class="w-full h-full object-cover"></div>
+                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Amina Hassan</h4>
+                            <p class="text-[10px] text-medical-primary font-medium">Orthodontics</p>
+                        </div>
+                        <div onclick="openBookingModal()" class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 p-2.5 flex flex-col items-center text-center shadow-xs">
+                            <div class="w-16 h-16 rounded-xl overflow-hidden mb-2 bg-slate-100"><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200" alt="Dr. Khalid" class="w-full h-full object-cover"></div>
+                            <h4 class="font-bold text-slate-900 text-xs line-clamp-1">Dr. Khalid Omar</h4>
+                            <p class="text-[10px] text-medical-primary font-medium">Oral Surgery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="w-full bg-teal-50/50 py-16 lg:py-24 border-b border-slate-200 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-white px-3.5 py-1.5 rounded-full shadow-sm" data-i18n="clinical_services">Clinical Services</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="services_heading">Our Dental Departments</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1: General Dentistry -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition border border-slate-200 group reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition"><i class="fa-solid fa-tooth"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_1_title">General Dentistry</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed" data-i18n="serv_1_desc">Routine check‑ups, cleanings, fillings, and preventive care for the whole family.</p>
+                    <button onclick="openServiceModal('General Dentistry')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
+                </div>
+                <!-- 2: Cosmetic Dentistry -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition border border-slate-200 group reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition"><i class="fa-solid fa-smile"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_2_title">Cosmetic Dentistry</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed" data-i18n="serv_2_desc">Teeth whitening, veneers, bonding, and smile makeovers for a confident appearance.</p>
+                    <button onclick="openServiceModal('Cosmetic Dentistry')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
+                </div>
+                <!-- 3: Orthodontics -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition border border-slate-200 group reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-i18n="serv_3_title">Orthodontics</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed" data-i18n="serv_3_desc">Braces, clear aligners, and retainers to straighten teeth and correct bite issues.</p>
+                    <button onclick="openServiceModal('Orthodontics')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
+                </div>
+                <!-- 4: Oral Surgery -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition border border-slate-200 group reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition"><i class="fa-solid fa-scalpel"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Oral Surgery</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Wisdom tooth extractions, dental implants, jaw surgery, and other surgical procedures.</p>
+                    <button onclick="openServiceModal('Oral Surgery')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
+                </div>
+                <!-- 5: Pediatric Dentistry -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition border border-slate-200 group reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition"><i class="fa-solid fa-child"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Pediatric Dentistry</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Specialized dental care for children, including exams, sealants, and fluoride treatments.</p>
+                    <button onclick="openServiceModal('Pediatric Dentistry')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
+                </div>
+                <!-- 6: Emergency Dental Care -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition border border-slate-200 group reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-medical-primary group-hover:text-white transition"><i class="fa-solid fa-truck-medical"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Emergency Dental Care</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Prompt treatment for toothaches, chipped teeth, knocked‑out teeth, and other urgent issues.</p>
+                    <button onclick="openServiceModal('Emergency Dental Care')" class="text-medical-primary font-semibold text-sm flex items-center hover:underline"><span data-i18n="learn_more">Learn More</span> <i class="fa-solid fa-chevron-right ml-2 text-xs"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="w-full bg-slate-950 text-white py-16 sm:py-20 lg:py-28 reveal">
+        <div class="max-w-[1440px] mx-auto px-3 sm:px-8 space-y-8 sm:space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-medical-accent font-bold uppercase tracking-widest text-xs bg-medical-900/60 px-3.5 py-1.5 rounded-full border border-medical-500/30">Facility Showcase</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Dr. Abdi Specialty Dental Clinic Visual Tour</h2>
+                <p class="text-slate-300 text-sm sm:text-base">Explore our modern dental environment, state‑of‑the‑art equipment, and comfortable treatment rooms in Jigjiga.</p>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" loading="lazy" onerror="this.src='https://placehold.co/800x550/0e54ae/ffffff?text=Clinic+1'" alt="Clinic 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800" loading="lazy" onerror="this.src='https://placehold.co/800x550/0e54ae/ffffff?text=Clinic+2'" alt="Clinic 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=800" loading="lazy" onerror="this.src='https://placehold.co/800x550/0e54ae/ffffff?text=Clinic+3'" alt="Clinic 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800" loading="lazy" onerror="this.src='https://placehold.co/800x550/0e54ae/ffffff?text=Clinic+4'" alt="Clinic 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=800" loading="lazy" onerror="this.src='https://placehold.co/800x550/0e54ae/ffffff?text=Clinic+5'" alt="Clinic 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[4/3] sm:aspect-[16/11] bg-slate-900 group">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" loading="lazy" onerror="this.src='https://placehold.co/800x550/0e54ae/ffffff?text=Clinic+6'" alt="Clinic 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="col-span-2 lg:col-span-3 overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-800 aspect-[16/9] sm:aspect-[21/9] bg-slate-900 group">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1400" loading="lazy" onerror="this.src='https://placehold.co/1400x600/0e54ae/ffffff?text=Dr.+Abdi+Clinic+Panorama'" alt="Panorama" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (simplified with placeholder text) -->
+    <section class="w-full bg-slate-50 py-16 lg:py-24 border-b border-slate-200 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-medical-primary font-bold uppercase tracking-widest text-xs bg-white px-3.5 py-1.5 rounded-full shadow-sm" data-i18n="patient_trust">Patient Trust</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900" data-i18n="testimonials_heading">What Our Patients Say</h2>
+                <p class="text-slate-600 text-sm sm:text-base" data-i18n="testimonials_sub">Real feedback from patients who received exceptional dental care at Dr. Abdi Specialty Dental Clinic.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 reveal">
+                    <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="test_1">"The team at Dr. Abdi made my dental visit comfortable and painless. Highly recommend their professional care."</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-slate-100 mt-4">
+                        <div class="w-8 h-8 rounded-full bg-medical-100 text-medical-primary font-bold text-xs flex items-center justify-center">A</div>
+                        <div><h4 class="font-bold text-slate-900 text-xs">Ahmed M.</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 reveal">
+                    <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="test_2">"Excellent service and modern equipment. My smile has never looked better. Thank you Dr. Abdi!"</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-slate-100 mt-4">
+                        <div class="w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-xs flex items-center justify-center">F</div>
+                        <div><h4 class="font-bold text-slate-900 text-xs">Fatima H.</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 reveal">
+                    <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="test_3">"Professional, friendly, and affordable. I trust Dr. Abdi with my whole family's dental health."</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-slate-100 mt-4">
+                        <div class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center">K</div>
+                        <div><h4 class="font-bold text-slate-900 text-xs">Khalid O.</h4><p class="text-[10px] text-slate-500">Jigjiga</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section id="story" class="w-full bg-slate-900 text-white py-16 lg:py-24 relative overflow-hidden reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+                <span class="text-medical-accent font-bold uppercase tracking-widest text-xs bg-medical-900/50 px-3.5 py-1.5 rounded-full border border-medical-500/30" data-i18n="our_story_badge">Our Story</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="story_heading">Building Trust & Quality Dental Care in Jigjiga</h2>
+                <p class="text-slate-300 font-light leading-relaxed text-sm sm:text-base" data-i18n="story_desc">Dr. Abdi Specialty Dental Clinic was founded with a vision to provide accessible, high‑standard dental care with compassion. Learn more about our commitment to the community.</p>
+                <div class="flex items-center gap-3 pt-2">
+                    <button onclick="openBookingModal()" class="bg-medical-primary hover:bg-medical-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition text-sm"><span data-i18n="book_now">Book Appointment</span></button>
+                    <a href="https://wa.me/251957077080" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition text-sm flex items-center"><i class="fa-brands fa-whatsapp mr-2"></i> <span data-i18n="whatsapp_us">WhatsApp Us</span></a>
+                </div>
+            </div>
+            <div class="lg:col-span-6">
+                <div class="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 flex items-center justify-center group">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" loading="lazy" onerror="this.src='https://placehold.co/800x450/0f172a/ffffff?text=Dr.+Abdi+Specialty+Dental+Clinic+Video'" alt="Video Placeholder" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
+                        <button onclick="playVideoPlaceholder()" class="w-20 h-20 rounded-full bg-medical-primary text-white flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition"><i class="fa-solid fa-play ml-1"></i></button>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 bg-slate-900/80 backdrop-blur-md p-3 rounded-xl text-xs text-slate-300 flex justify-between items-center">
+                        <span data-i18n="video_caption">Dr. Abdi Specialty Dental Clinic Introduction & Facility Overview</span>
+                        <span class="text-medical-accent font-bold">2:45 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="w-full bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-900 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div class="space-y-6 lg:col-span-1">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-medical-primary to-medical-accent flex items-center justify-center text-white font-bold text-xl shadow-md"><i class="fa-solid fa-tooth"></i></div>
+                    <div><span class="text-2xl font-extrabold tracking-tight text-white">Dr. Abdi <span class="text-medical-primary">Specialty Dental Clinic</span></span><span class="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold" data-i18n="tagline">Private Dental Center</span></div>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed" data-i18n="footer_desc">Dr. Abdi Specialty Dental Clinic provides expert dental care with advanced technology and compassionate service in Jigjiga.</p>
+                <div class="flex space-x-4">
+                    <a href="https://wa.me/251957077080" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition" title="WhatsApp"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                    <a href="tel:0957077080" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-medical-primary text-white flex items-center justify-center transition" title="Call"><i class="fa-solid fa-phone"></i></a>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-base" data-i18n="footer_quick_links">Quick Links</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#home" class="hover:text-white transition" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#specialists" class="hover:text-white transition" data-i18n="nav_doctors">Specialists</a></li>
+                    <li><a href="#services" class="hover:text-white transition" data-i18n="nav_services">Services</a></li>
+                    <li><a href="#gallery" class="hover:text-white transition" data-i18n="nav_gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-base" data-i18n="footer_departments">Departments</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#services" class="hover:text-white transition">General Dentistry</a></li>
+                    <li><a href="#services" class="hover:text-white transition">Cosmetic Dentistry</a></li>
+                    <li><a href="#services" class="hover:text-white transition">Orthodontics</a></li>
+                    <li><a href="#services" class="hover:text-white transition">Oral Surgery</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-base" data-i18n="footer_contact">Contact Us</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start space-x-3"><i class="fa-solid fa-location-dot text-medical-primary mt-1"></i><span><a href="https://maps.app.goo.gl/9Q3X+6H" target="_blank" class="hover:underline text-slate-300">Jigjiga</a></span></li>
+                    <li class="flex items-center space-x-3"><i class="fa-solid fa-phone text-medical-primary"></i><span class="font-mono">095 707 7080</span></li>
+                    <li class="flex items-center space-x-3"><i class="fa-brands fa-whatsapp text-emerald-500"></i><a href="https://wa.me/251957077080" target="_blank" class="hover:underline text-emerald-400 font-medium font-mono">095 707 7080</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-8 border-t border-slate-900 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Dr. Abdi Specialty Dental Clinic (Jigjiga). All rights reserved.</p>
+            <div class="flex space-x-6"><a href="#" class="hover:text-white transition" data-i18n="privacy_policy">Privacy Policy</a><a href="#" class="hover:text-white transition" data-i18n="terms_service">Terms of Service</a></div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions" id="floating-actions">
+        <a href="https://wa.me/251957077080" target="_blank" class="whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:0957077080" class="phone" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
+    </div>
+
+    <!-- AI Chat -->
+    <button id="chat-toggle-btn" onclick="toggleChat()" aria-label="AI Assistant"><i class="fa-solid fa-robot"></i></button>
+    <div id="ai-chat-window">
+        <div class="chat-header">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-medical-500/20 border border-medical-500/40 flex items-center justify-center text-medical-400"><i class="fa-solid fa-robot"></i></div>
+                <div><h4 class="font-bold text-sm">Dr. Abdi AI Assistant</h4><span class="text-[10px] text-emerald-400 font-medium flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span> Online 24/7</span></div>
+            </div>
+            <button onclick="toggleChat()" class="text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-lg"></i></button>
+        </div>
+        <div id="chat-messages" class="chat-body chat-scroll">
+            <div class="flex items-start space-x-2">
+                <div class="w-8 h-8 rounded-full bg-medical-primary text-white flex items-center justify-center text-xs font-bold shrink-0">AI</div>
+                <div class="bg-white border border-slate-200 p-3 rounded-2xl rounded-tl-sm text-slate-700 shadow-sm max-w-[85%]">Welcome to Dr. Abdi Specialty Dental Clinic in Jigjiga! How can I assist you with appointments, services, or dental care today?</div>
+            </div>
+        </div>
+        <div class="px-3 py-2 bg-slate-100 flex gap-1.5 overflow-x-auto flex-shrink-0" style="flex-wrap:nowrap;">
+            <button onclick="sendQuickPrompt('What are your working hours?')" class="quick-prompt">Hours</button>
+            <button onclick="sendQuickPrompt('How do I book an appointment?')" class="quick-prompt">Booking</button>
+            <button onclick="sendQuickPrompt('Where is Dr. Abdi located?')" class="quick-prompt">Location</button>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Type your question..." onkeypress="handleChatKey(event)">
+            <button onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane text-sm"></i></button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="booking-modal">
+        <div class="modal-inner">
+            <button class="modal-close" onclick="closeBookingModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-medical-50 text-medical-primary flex items-center justify-center text-xl"><i class="fa-regular fa-calendar-check"></i></div>
+                <div><h3 class="text-xl font-extrabold text-slate-900" data-i18n="book_modal_title">Book Your Appointment</h3><p class="text-xs text-slate-500" data-i18n="book_modal_sub">Fill in your details to secure a consultation at Dr. Abdi Specialty Dental Clinic.</p></div>
+            </div>
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1" data-i18n="label_fullname">Full Name</label><input type="text" id="modal-name" required placeholder="Enter your full name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-medical-primary"></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1" data-i18n="label_phone">Phone Number</label><input type="tel" id="modal-phone" required value="0957077080" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-medium font-mono focus:outline-none focus:border-medical-primary"></div>
+                    <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1" data-i18n="label_dept">Department</label><select id="modal-dept" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-medical-primary">
+                        <option>General Dentistry</option><option>Cosmetic Dentistry</option><option>Orthodontics</option><option>Oral Surgery</option><option>Pediatric Dentistry</option><option>Emergency Dental Care</option>
+                    </select></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1" data-i18n="label_date">Preferred Date</label><input type="date" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-medical-primary"></div>
+                    <div><label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1" data-i18n="label_time">Preferred Time</label><select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-medical-primary">
+                        <option>Morning (08:00 AM - 12:00 PM)</option><option>Afternoon (02:00 PM - 06:00 PM)</option><option>Evening / Urgent (06:00 PM - 10:00 PM)</option>
+                    </select></div>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-medical-primary to-medical-secondary text-white font-bold py-4 rounded-xl shadow-lg shadow-medical-primary/20 hover:opacity-95 transition text-sm"><span data-i18n="confirm_booking_btn">Confirm Appointment Request</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast-notification">
+        <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold"><i class="fa-solid fa-check"></i></div>
+        <div><h4 class="font-bold text-sm" data-i18n="toast_title">Appointment Requested!</h4><p class="text-xs text-slate-300" data-i18n="toast_sub">We will call 095 707 7080 shortly to confirm.</p></div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== LANGUAGE TRANSLATIONS =====
+        const translations = {
+            en: {
+                emergency_label: "Emergency",
+                hours_label: "Open 24/7 Emergency & Inpatient",
+                tagline: "Private Dental Center",
+                nav_home: "Home",
+                nav_doctors: "Specialists",
+                nav_services: "Services",
+                nav_gallery: "Gallery",
+                nav_story: "Our Story",
+                nav_contact: "Contact",
+                ai_assistant_btn: "AI Assistant",
+                book_btn: "Book Appointment",
+                hero_badge: "Jigjiga's Leading Private Dental Clinic",
+                hero_desc: "Your smile is our priority. With experienced specialists, modern technology, and patient‑centered care at Dr. Abdi Specialty Dental Clinic in Jigjiga.",
+                book_appointment_cta: "Book An Appointment",
+                whatsapp_cta: "Chat on WhatsApp",
+                welcome_mesh: "Welcome to Dr. Abdi Specialty Dental Clinic",
+                call_us_now: "Call Us Now",
+                whatsapp_chat: "WhatsApp Support",
+                expert_team: "Expert Dental Team",
+                specialists_heading: "Meet Our Dedicated Specialists",
+                specialists_sub: "Consult with our experienced dentists committed to your oral health and confident smile.",
+                book_consultation: "Book Consultation",
+                book_appointment_card: "Book Appointment",
+                doc_spec_1: "General Dentistry",
+                doc_spec_2: "Orthodontics",
+                doc_spec_3: "Oral Surgery",
+                doc_spec_4: "Pediatric Dentistry",
+                clinical_services: "Clinical Services",
+                services_heading: "Our Dental Departments",
+                serv_1_title: "General Dentistry",
+                serv_1_desc: "Routine check‑ups, cleanings, fillings, and preventive care for the whole family.",
+                serv_2_title: "Cosmetic Dentistry",
+                serv_2_desc: "Teeth whitening, veneers, bonding, and smile makeovers for a confident appearance.",
+                serv_3_title: "Orthodontics",
+                serv_3_desc: "Braces, clear aligners, and retainers to straighten teeth and correct bite issues.",
+                learn_more: "Learn More",
+                patient_trust: "Patient Trust",
+                testimonials_heading: "What Our Patients Say",
+                testimonials_sub: "Real feedback from patients who received exceptional dental care at Dr. Abdi Specialty Dental Clinic.",
+                test_1: "\"The team at Dr. Abdi made my dental visit comfortable and painless. Highly recommend their professional care.\"",
+                test_2: "\"Excellent service and modern equipment. My smile has never looked better. Thank you Dr. Abdi!\"",
+                test_3: "\"Professional, friendly, and affordable. I trust Dr. Abdi with my whole family's dental health.\"",
+                our_story_badge: "Our Story",
+                story_heading: "Building Trust & Quality Dental Care in Jigjiga",
+                story_desc: "Dr. Abdi Specialty Dental Clinic was founded with a vision to provide accessible, high‑standard dental care with compassion. Learn more about our commitment to the community.",
+                book_now: "Book Appointment",
+                whatsapp_us: "WhatsApp Us",
+                video_caption: "Dr. Abdi Specialty Dental Clinic Introduction & Facility Overview",
+                footer_desc: "Dr. Abdi Specialty Dental Clinic provides expert dental care with advanced technology and compassionate service in Jigjiga.",
+                footer_quick_links: "Quick Links",
+                footer_departments: "Departments",
+                footer_contact: "Contact Us",
+                privacy_policy: "Privacy Policy",
+                terms_service: "Terms of Service",
+                book_modal_title: "Book Your Appointment",
+                book_modal_sub: "Fill in your details to secure a consultation at Dr. Abdi Specialty Dental Clinic.",
+                label_fullname: "Full Name",
+                label_phone: "Phone Number",
+                label_dept: "Department",
+                label_date: "Preferred Date",
+                label_time: "Preferred Time",
+                confirm_booking_btn: "Confirm Appointment Request",
+                toast_title: "Appointment Requested!",
+                toast_sub: "We will call 095 707 7080 shortly to confirm."
+            },
+            am: {
+                emergency_label: "ድንገተኛ አደጋ",
+                hours_label: "24/7 የድንገተኛ እና ህሙማን ማቆያ ክፍት ነው",
+                tagline: "ግል የጥርስ ህክምና ማዕከል",
+                nav_home: "መነሻ",
+                nav_doctors: "ባለሙያዎች",
+                nav_services: "አገልግሎቶች",
+                nav_gallery: "ፎቶዎች",
+                nav_story: "ታሪካችን",
+                nav_contact: "አግኙን",
+                ai_assistant_btn: "የAI ረዳት",
+                book_btn: "ቀጠሮ ይያዙ",
+                hero_badge: "የጅጅጋ መሪ የግል የጥርስ ህክምና ክሊኒክ",
+                hero_desc: "የእርስዎ ፈገግታ ቅድሚያችን ነው! በDr. Abdi Specialty Dental Clinic ልምድ ባላቸው ባለሙያዎች እና ዘመናዊ ቴክኖሎጂ እንክብካቤ ይደረጋል።",
+                book_appointment_cta: "ቀጠሮ ይያዙ",
+                whatsapp_cta: "በዋትስአፕ ያነጋገሩን",
+                welcome_mesh: "ወደ Dr. Abdi Specialty Dental Clinic እንኳን በደህና መጡ",
+                call_us_now: "አሁን ይደውሉልን",
+                whatsapp_chat: "የዋትስአፕ ድጋፍ",
+                expert_team: "የባለሙያ የጥርስ ህክምና ቡድን",
+                specialists_heading: "የእኛ ባለሙያተኞች",
+                specialists_sub: "ለአፍዎ ጤና እና የሚያብረቀርቅ ፈገግታ ከልምድ ባላቸው የጥርስ ሃኪሞች ጋር ይማክሩ።",
+                book_consultation: "ምክክር መርሐግብር",
+                book_appointment_card: "ቀጠሮ ይያዙ",
+                doc_spec_1: "አጠቃላይ የጥርስ ህክምና",
+                doc_spec_2: "ኦርቶዶንቲክስ",
+                doc_spec_3: "የአፍ ቀዶ ጥገና",
+                doc_spec_4: "የህፃናት ጥርስ ህክምና",
+                clinical_services: "ክሊኒካዊ አገልግሎቶች",
+                services_heading: "የእኛ ክፍሎች",
+                serv_1_title: "አጠቃላይ የጥርስ ህክምና",
+                serv_1_desc: "መደበኛ ምርመራ፣ ጽዳት፣ መሙላት እና ለቤተሰብ ሁሉ የመከላከያ እንክብካቤ።",
+                serv_2_title: "ውበት ጥርስ ህክምና",
+                serv_2_desc: "የጥርስ መንጻት፣ ቬኒሮች፣ ማጣበቂያ እና ፈገግታ ማሻሻያ ለራስ መተማመን መልክ።",
+                serv_3_title: "ኦርቶዶንቲክስ",
+                serv_3_desc: "ጥርስን ለማስተካከል እና ንክሻ ችግሮችን ለማስተካከል ማሰሪያ፣ ግልጽ አላይመሮች እና ሪቴይነሮች።",
+                learn_more: "ተጨማሪ ይወቁ",
+                patient_trust: "የታካሚ እምነት",
+                testimonials_heading: "ታካሚዎቻችን ምን ይላሉ?",
+                testimonials_sub: "በDr. Abdi Specialty Dental Clinic ጥራት ያለው የጥርስ ህክምና ካገኙ ታካሚዎች እውነተኛ አስተያየቶች።",
+                test_1: "\"የዶ/ር አብዲ ቡድን የጥርስ ጉብኝቴን ምቹ እና ህመም የሌለው አድርጎታል። ሙያዊ እንክብካቤያቸውን ከፍ አድርጌ እመክራለሁ።\"",
+                test_2: "\"እጅግ ጥሩ አገልግሎት እና ዘመናዊ መሣሪያዎች። ፈገግታዬ በጣም ተሻሽሏል። እናመሰግናለን ዶ/ር አብዲ!\"",
+                test_3: "\"ሙያዊ፣ ወዳጃዊ እና ተመጣጣኝ። የቤተሰቤን ሁሉ የጥርስ ጤና ለዶ/ር አብዲ አደራ እሰጣለሁ።\"",
+                our_story_badge: "ታሪካችን",
+                story_heading: "በጅጅጋ መተማመን እና ጥራት ያለው የጥርስ ህክምና መገንባት",
+                story_desc: "ዶ/ር አብዲ Specialty Dental Clinic የተመሰረተው ተደራሽ እና ከፍተኛ ደረጃ ያለው የጥርስ ህክምና በርህራሄ ለማቅረብ ነው። ለማህበረሰባችን ስላለን ቁርጠኝነት የበለጠ ይወቁ።",
+                book_now: "ቀጠሮ ይያዙ",
+                whatsapp_us: "በዋትስአፕ ያነጋገሩን",
+                video_caption: "የዶ/ር አብዲ Specialty Dental Clinic መግቢያ እና የተቋም አጠቃላይ እይታ",
+                footer_desc: "ዶ/ር አብዲ Specialty Dental Clinic በጅጅጋ የላቀ የጥርስ ህክምና በዘመናዊ ቴክኖሎጂ እና በርህራሄ አገልግሎት ይሰጣል።",
+                footer_quick_links: "ፈጣን አገናኞች",
+                footer_departments: "ክፍሎች",
+                footer_contact: "አግኙን",
+                privacy_policy: "የግላዊነት ፖሊሲ",
+                terms_service: "የአገልግሎት ውሎች",
+                book_modal_title: "ቀጠሮዎን ይያዙ",
+                book_modal_sub: "በዶ/ር አብዲ Specialty Dental Clinic ለመታከም ዝርዝርዎን ይሙሉ።",
+                label_fullname: "ሙሉ ስም",
+                label_phone: "ስልክ ቁጥር",
+                label_dept: "ክፍል",
+                label_date: "የሚፈልጉት ቀን",
+                label_time: "የሚፈልጉት ሰዓት",
+                confirm_booking_btn: "የቀጠሮ ጥያቄውን ያረጋግጡ",
+                toast_title: "ቀጠሮ ተጠይቋል!",
+                toast_sub: "ለማረጋገጫ በ095 707 7080 እንደውልልዎታለን።"
+            },
+            so: {
+                emergency_label: "Degdeg",
+                hours_label: "Furan 24/7 Adeegga Degdga & Jiifka",
+                tagline: "Xarun Ilkaha oo Gaar loo leeyahay",
+                nav_home: "Bogga Hore",
+                nav_doctors: "Takhasusyada",
+                nav_services: "Adeegyada",
+                nav_gallery: "Sawirada",
+                nav_story: "Sheekadeena",
+                nav_contact: "Nala Soo Xiriir",
+                ai_assistant_btn: "Kaaliyaha AI",
+                book_btn: "Ballansato",
+                hero_badge: "Xarunta Ilkaha ee Hormuudka ka ah Jigjiga",
+                hero_desc: "Daryeelka ilkahaaga ayaa ah mudnaantayada. Dr. Abdi Specialty Dental Clinic waxay bixisaa daryeel ilkaha oo lagu kalsoonaan karo iyadoo ay joogaan dhakhaatiir khibrad leh iyo tignoolajiyad casri ah.",
+                book_appointment_cta: "Ballan Qabso",
+                whatsapp_cta: "Nagala Hadal WhatsApp",
+                welcome_mesh: "Ku soo dhowow Dr. Abdi Specialty Dental Clinic",
+                call_us_now: "Na Soo Wac Hadda",
+                whatsapp_chat: "Taageerada WhatsApp",
+                expert_team: "Kooxda Takhasuska Ilkaha",
+                specialists_heading: "La Kulanto Dhakhaatiirteena Takhasuska Leh",
+                specialists_sub: "La tasho dhakhaatiir khibrad leh oo u heellan caafimaadka ilkahaaga iyo dhoolla caddayn kalsooni leh.",
+                book_consultation: "Ballansato La-tashi",
+                book_appointment_card: "Ballan Qabso",
+                doc_spec_1: "Daawada Guud ee Ilkaha",
+                doc_spec_2: "Orthodontics",
+                doc_spec_3: "Qaliinka Afka",
+                doc_spec_4: "Daryeelka Ilkaha Carruurta",
+                clinical_services: "Adeegyada Caafimaadka",
+                services_heading: "Waaxyheena",
+                serv_1_title: "Daawada Guud ee Ilkaha",
+                serv_1_desc: "Baaritaano joogto ah, nadiifin, buuxin, iyo daryeel ka hortag ah oo loogu talagalay qoyska oo dhan.",
+                serv_2_title: "Daawada Qurxinta Ilkaha",
+                serv_2_desc: "Nadiifinta ilkaha, veneers, bonding, iyo dib u habaynta dhoolla caddayn si aad u hesho muuqaal kalsooni leh.",
+                serv_3_title: "Orthodontics",
+                serv_3_desc: "Xargaha, aligners cad, iyo retainer si loo hagaajiyo ilkaha iyo qaniinyada.",
+                learn_more: "Wax Dheeraad ah Baro",
+                patient_trust: "Kalsoonida Bukaanka",
+                testimonials_heading: "Waxaa Ay Bukaannadeedu Dhaheen",
+                testimonials_sub: "Fikradaha dhabta ah ee bukaannada ka helay daryeelka Dr. Abdi Specialty Dental Clinic.",
+                test_1: "\"Kooxda Dr. Abdi waxay booqashadayda ilkaha ka dhigtay mid raaxo leh oo aan xanuun lahayn. Waxaan si weyn ugu talinayaa daryeelkooda xirfadleyda ah.\"",
+                test_2: "\"Adeeg aad u wanaagsan iyo qalab casri ah. Dhoolla caddayntayda waligeed ma arag sidan. Waad ku mahadsan tahay Dr. Abdi!\"",
+                test_3: "\"Xirfad leh, saaxiibtinimo, iyo qiimo jaban. Waxaan ku kalsoonahay Dr. Abdi caafimaadka ilkaha qoyskayga oo dhan.\"",
+                our_story_badge: "Sheekadeena",
+                story_heading: "Dhisidda Kalsoonida & Daryeelka Ilkaha ee Tayada Leh ee Jigjiga",
+                story_desc: "Dr. Abdi Specialty Dental Clinic waxaa la aasaasay aragti ah in la bixiyo daryeel ilkaha oo tayo sare leh oo ay weheliso naxariis. Wax ka baro sida aan uga go'an tahay bulshada.",
+                book_now: "Ballan Qabso",
+                whatsapp_us: "Nagala Xiriir WhatsApp",
+                video_caption: "Hordhaca & Dulmarka Xarunta Dr. Abdi Specialty Dental Clinic",
+                footer_desc: "Dr. Abdi Specialty Dental Clinic waxay bixisaa daryeel ilkaha oo heersare ah oo ay weheliyaan tignoolajiyad casri ah iyo adeeg naxariis leh oo Jigjiga ku yaal.",
+                footer_quick_links: "Xiriirinta Degdegga ah",
+                footer_departments: "Waaxyaha",
+                footer_contact: "Nala Soo Xiriir",
+                privacy_policy: "Siyaasadda Khaas ahaanshaha",
+                terms_service: "Shuruudaha Adeegga",
+                book_modal_title: "Ballansato Ballantaada",
+                book_modal_sub: "Buuxi faahfaahintaada si aad ballan uga qabsatid Dr. Abdi Specialty Dental Clinic.",
+                label_fullname: "Magaca oo Buuxa",
+                label_phone: "Lambarka Telefoonka",
+                label_dept: "Waaxda",
+                label_date: "Taariikhda la doorbiday",
+                label_time: "Waqtiga la doorbiday",
+                confirm_booking_btn: "Xaqiiji Codsiga Ballanta",
+                toast_title: "Ballan ayaa la Codsaday!",
+                toast_sub: "Waxaanu ku soo wici doonaa 095 707 7080 si aanu u xaqiijino."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const dict = translations[lang] || translations['en'];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.textContent = dict[key];
+            });
+            const labels = { en: 'English', am: 'አማርኛ', so: 'Af-Somali' };
+            document.getElementById('current-lang-label').textContent = labels[lang];
+            document.getElementById('mobile-lang-label').textContent = labels[lang];
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+        }
+
+        function toggleLangDropdown() {
+            document.getElementById('lang-dropdown').classList.toggle('hidden');
+        }
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        function toggleMobileMenu() { mobileMenu.classList.add('hidden'); }
+        function toggleMobileSubmenu(btn) {
+            const parent = btn.closest('.mobile-accordion');
+            if (!parent) return;
+            const sub = parent.querySelector('.mobile-submenu');
+            const chevron = btn.querySelector('.fa-chevron-down');
+            if (sub) {
+                sub.classList.toggle('open');
+                if (chevron) chevron.style.transform = sub.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        }
+
+        // Modal
+        function openBookingModal() {
+            document.getElementById('booking-modal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('booking-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeBookingModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+                document.getElementById('ai-chat-window').classList.remove('show');
+            }
+        });
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            closeBookingModal();
+            showToast('Appointment Requested!', 'We will call 095 707 7080 shortly to confirm.');
+        }
+
+        function openServiceModal(serviceName) {
+            openBookingModal();
+            const sel = document.getElementById('modal-dept');
+            for (let i = 0; i < sel.options.length; i++) {
+                if (sel.options[i].text.includes(serviceName)) { sel.selectedIndex = i; break; }
+            }
+        }
+
+        function showToast(title, msg) {
+            const toast = document.getElementById('toast-notification');
+            toast.querySelector('h4').textContent = title || 'Appointment Requested!';
+            toast.querySelector('p').textContent = msg || 'We will call 095 707 7080 shortly to confirm.';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4500);
+        }
+        function showToastMessage(msg) { showToast('Dr. Abdi Specialty Dental Clinic Notice', msg); }
+        function playVideoPlaceholder() { showToastMessage('Video player loading. You can watch Dr. Abdi\'s introduction video or call 095 707 7080!'); }
+
+        // AI Chat
+        function toggleChat() {
+            document.getElementById('ai-chat-window').classList.toggle('show');
+        }
+        function handleChatKey(e) { if (e.key === 'Enter') sendChatMessage(); }
+        function sendQuickPrompt(text) { document.getElementById('chat-input').value = text; sendChatMessage(); }
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+            const container = document.getElementById('chat-messages');
+            container.innerHTML += `<div class="flex items-start justify-end space-x-2"><div class="bg-medical-primary text-white p-3 rounded-2xl rounded-tr-sm text-sm shadow-sm max-w-[85%]">${escapeHtml(msg)}</div></div>`;
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
+            setTimeout(() => {
+                let reply = "Thank you for reaching out to Dr. Abdi Specialty Dental Clinic in Jigjiga! We are open 24/7 for emergencies. You can reach us directly at 095 707 7080 or via WhatsApp at the same number.";
+                const lower = msg.toLowerCase();
+                if (lower.includes('appointment') || lower.includes('book') || lower.includes('ቀጠሮ') || lower.includes('ballansato')) {
+                    reply = "You can easily book an appointment by clicking the 'Book Appointment' button at the top of the page or calling us at 095 707 7080.";
+                } else if (lower.includes('phone') || lower.includes('number') || lower.includes('call') || lower.includes('ስልክ')) {
+                    reply = "Dr. Abdi Specialty Dental Clinic phone number & WhatsApp: 095 707 7080.";
+                } else if (lower.includes('address') || lower.includes('location') || lower.includes('where') || lower.includes('አድራሻ')) {
+                    reply = "Dr. Abdi Specialty Dental Clinic is centrally located in Jigjiga. View on Google Maps: https://maps.app.goo.gl/9Q3X+6H";
+                } else if (lower.includes('hour') || lower.includes('time') || lower.includes('open') || lower.includes('ሰዓት')) {
+                    reply = "Dr. Abdi Specialty Dental Clinic is open 24 hours a day, 7 days a week for emergency care!";
+                }
+                container.innerHTML += `<div class="flex items-start space-x-2"><div class="w-8 h-8 rounded-full bg-medical-primary text-white flex items-center justify-center text-xs font-bold shrink-0">AI</div><div class="bg-white border border-slate-200 p-3 rounded-2xl rounded-tl-sm text-slate-700 text-sm shadow-sm max-w-[85%]">${escapeHtml(reply)}</div></div>`;
+                container.scrollTop = container.scrollHeight;
+            }, 700);
+        }
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        // ===== Typing, Reveal, Stats, Back‑to‑top, Floating actions =====
+        function typeText(element, text, speed = 50) {
+            if (!element) return;
+            let i = 0;
+            element.textContent = '';
+            const cursor = document.createElement('span');
+            cursor.className = 'typing-cursor';
+            element.appendChild(cursor);
+            function type() {
+                if (i < text.length) {
+                    const char = text.charAt(i);
+                    const textNode = document.createTextNode(char);
+                    element.insertBefore(textNode, cursor);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    cursor.style.display = 'none';
+                }
+            }
+            type();
+        }
+
+        function initScrollReveal() {
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+                new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }).observe(el);
+            });
+        }
+
+        function initStatsCounter() {
+            const stats = document.querySelectorAll('.stat-number');
+            let animated = false;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !animated) {
+                        animated = true;
+                        stats.forEach(stat => {
+                            const target = parseInt(stat.dataset.target);
+                            if (isNaN(target)) return;
+                            let current = 0;
+                            const increment = Math.ceil(target / 60);
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) { current = target; clearInterval(timer); }
+                                stat.textContent = current + (target > 100 ? '+' : '');
+                            }, 30);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            const section = document.querySelector('.stats-section');
+            if (section) observer.observe(section);
+        }
+
+        function initBackToTop() {
+            const btn = document.getElementById('back-to-top');
+            if (!btn) return;
+            window.addEventListener('scroll', () => {
+                btn.classList.toggle('visible', window.scrollY > 400);
+            });
+            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+
+        function initFloatingActions() {
+            const actions = document.getElementById('floating-actions');
+            if (!actions) return;
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    actions.style.opacity = '0.7';
+                    actions.style.transform = 'scale(0.95)';
+                } else {
+                    actions.style.opacity = '1';
+                    actions.style.transform = 'scale(1)';
+                }
+            });
+        }
+
+        // Hero slider & Three.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set first slide visible
+            const firstSlide = document.querySelector('.hero-bg-slide:not(.hidden)');
+            if (firstSlide) { firstSlide.classList.add('opacity-100'); firstSlide.classList.remove('opacity-0'); }
+
+            // Slider rotation
+            setTimeout(() => {
+                let slides = Array.from(document.querySelectorAll('.hero-bg-slide'));
+                if (slides.length > 0) {
+                    slides.forEach((s,i) => { if(i===0) { s.classList.add('opacity-100'); s.classList.remove('opacity-0'); } else { s.classList.remove('opacity-100'); s.classList.add('opacity-0'); } });
+                    let idx = 0;
+                    setInterval(() => {
+                        slides[idx].classList.remove('opacity-100'); slides[idx].classList.add('opacity-0');
+                        idx = (idx + 1) % slides.length;
+                        slides[idx].classList.remove('opacity-0'); slides[idx].classList.add('opacity-100');
+                    }, 2500);
+                }
+            }, 200);
+
+            // Three.js
+            setTimeout(() => {
+                const canvas = document.getElementById('hero-canvas');
+                if (canvas && typeof THREE !== 'undefined') {
+                    const scene = new THREE.Scene();
+                    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                    const geo = new THREE.BufferGeometry();
+                    const count = 150;
+                    const pos = new Float32Array(count * 3);
+                    for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 16;
+                    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+                    const mat = new THREE.PointsMaterial({ size: 0.045, color: 0x38bdf8, transparent: true, opacity: 0.65 });
+                    const mesh = new THREE.Points(geo, mat);
+                    scene.add(mesh);
+                    camera.position.z = 5;
+                    const clock = new THREE.Clock();
+                    function animate() {
+                        requestAnimationFrame(animate);
+                        const t = clock.getElapsedTime();
+                        mesh.rotation.y = t * 0.03;
+                        mesh.rotation.x = t * 0.015;
+                        renderer.render(scene, camera);
+                    }
+                    animate();
+                    window.addEventListener('resize', () => {
+                        camera.aspect = window.innerWidth / window.innerHeight;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(window.innerWidth, window.innerHeight);
+                    });
+                }
+            }, 2500);
+
+            // Typing
+            setTimeout(() => {
+                const el = document.querySelector('.typing-effect');
+                if (el) {
+                    const text = el.dataset.text || el.textContent.trim();
+                    el.textContent = '';
+                    typeText(el, text, 50);
+                }
+            }, 500);
+
+            // Scroll reveal
+            setTimeout(initScrollReveal, 300);
+            setTimeout(initStatsCounter, 800);
+            setTimeout(() => { initBackToTop(); initFloatingActions(); }, 500);
+        });
+    </script>
+</body>
+</html>
